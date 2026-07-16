@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="it">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gioco dell'LoCa</title>
+
+    <link rel="stylesheet" href="css/playerSetup.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/popup.css">
+
+</head>
+
+<body>
+
+    <div id="playerSetup">
+        <div id="playerSetupBox">
+
+            <h1>Gioco dell'LoCa</h1>
+
+            <p>Quanti giocatori partecipano?</p>
+
+            <div id="playerChoices">
+
+                <button data-players="1">1</button>
+
+                <button data-players="2">2</button>
+
+                <button data-players="3">3</button>
+
+                <button data-players="4">4</button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <main id="application">
+
+        <section id="boardContainer">
+
+            <img
+                id="board"
+                src="images/tabellone.png"
+                alt="Tabellone">
+
+            <svg
+                id="overlay"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1000 1000"
+                preserveAspectRatio="none">
+
+            </svg>
+
+        </section>
+
+        <button id="btnMenu" title="Menu">
+
+            ⚙
+
+        </button>
+        <aside id="menuPanel" class="hidden">
+
+            <div id="menuHeader">
+
+            <img
+                id="logo"
+                src="images/logo.png"
+                alt="Logo Lo.Ca.4Students">
+
+            <h2>Gioco dell'LoCa</h2>
+
+            <p class="subtitle">
+
+                Lo.Ca.4Students
+
+            </p>
+
+            <p class="version">
+
+                Versione 0.1.0
+
+            </p>
+
+            </div>
+        
+            <button id="btnConfig">
+                Configura Caselle
+            </button>
+
+            <button id="btnNumbers">
+                Mostra Numeri
+            </button>
+
+            <button id="btnExport">
+                Esporta JSON
+            </button>
+            <button id="btnNewGame">
+                Nuova Partita
+            </button>
+
+            <hr>
+
+            <button id="btnFullscreen">
+                Schermo Intero
+            </button>
+
+        </aside>
+
+    </main>
+
+
+    <footer id="statusBar">
+
+        <span id="statusMessage">
+
+            🟢 Pronto
+
+        </span>
+
+        <span id="statusVersion">
+
+            Gioco dell'LoCa v0.1.0
+
+        </span>
+
+    </footer>
+
+    <script src="js/game.js"></script>
+    <script src="js/Board.js"></script>
+    <script src="js/Renderer.js"></script>
+    <script src="js/Popup.js"></script>
+    <script src="js/Config.js"></script>
+    <script src="js/PlayerSetup.js"></script>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/UI.js"></script>
+    <script src="js/Player.js"></script>
+    <script src="js/Dice.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

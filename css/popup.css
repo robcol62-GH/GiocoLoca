@@ -1,0 +1,41 @@
+#gamePopup {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    z-index: 9999;
+
+    cursor: pointer;
+
+}
+
+
+#gamePopup img,
+#gamePopup video {
+
+    max-width: 85vw;
+
+    max-height: 85vh;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+
+}
+
+#gamePopup audio {
+
+    width: min(600px, 80vw);
+
+}

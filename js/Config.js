@@ -1,0 +1,355 @@
+/*********************************************************************
+
+    Gioco dell'LoCa
+    File: Config.js
+
+*********************************************************************/
+
+const Config = {
+
+    init() {
+
+        this.button =
+            document.getElementById("btnConfig");
+
+        if (this.button) {
+
+            this.button.addEventListener(
+
+                "click",
+
+                () => this.start()
+
+            );
+
+        };
+        this.exportButton =
+                document.getElementById("btnExport");
+
+        if (this.exportButton) {
+
+            this.exportButton.addEventListener(
+
+                "click",
+
+                () => this.exportJSON()
+
+            );
+
+        }
+
+        this.numbersButton =
+            document.getElementById("btnNumbers");
+
+        if (this.numbersButton) {
+
+            this.updateNumbersButton();
+
+            this.numbersButton.addEventListener(
+
+                "click",
+
+                () => {
+
+                    Game.showNumbers = !Game.showNumbers;
+
+                    Renderer.refresh();
+
+                    this.updateNumbersButton();
+
+                }
+
+            );
+
+        }
+
+        Game.log("Configuratore pronto");
+        Game.overlay.addEventListener(
+
+            "click",
+
+            (event) => {
+                this.handleClick(event);
+            }
+
+        )
+    },
+
+    start() {
+
+        Game.mode = "config";
+        Game.overlay.style.pointerEvents = "auto";
+
+        UI.setStatus("🟡 Modalità configurazione");
+
+        Game.log("Modalità configurazione attiva");
+
+    },
+
+    createCell(x, y) {
+
+        const cell = {
+
+            id: Game.cells.length + 1,
+
+            position: {
+
+                x,
+
+                y
+
+            },
+
+            image: null
+
+        };
+
+        Game.cells.push(cell);
+
+        return cell;
+
+    },
+
+    handleClick(event) {
+
+        const point = Board.screenToBoard(
+            event.clientX,
+            event.clientY
+        );
+
+        const relative = Board.boardToRelative(
+            point.x,
+            point.y
+        );
+
+
+        // ==============================
+        // MODALITÀ PLAY
+        // ==============================
+
+        if (Game.mode === "play") {
+            // ==============================
+            // CLICK SULLA PEDINA
+            // ==============================
+
+            const playerElement = event.target.closest(".player");
+
+            if (playerElement && !Game.selectedPlayer) {
+
+                const playerId = Number(
+                    playerElement.dataset.playerId
+                );
+
+                const player = Game.players.find(
+                    player => player.id === playerId
+                );
+
+                if (player) {
+
+                    Game.selectedPlayer = player;
+
+                    console.log(
+                        "Pedina selezionata:",
+                        player.name
+                    );
+                    Renderer.refresh();
+
+                }
+
+                return;
+
+            }
+
+            let nearestCell = null;
+            let nearestDistance = Infinity;
+
+            for (const cell of Game.cells) {
+
+                const dx = relative.x - cell.position.x;
+                const dy = relative.y - cell.position.y;
+
+                const distance = Math.sqrt(
+                    dx * dx + dy * dy
+                );
+
+                if (distance < nearestDistance) {
+
+                    nearestDistance = distance;
+                    nearestCell = cell;
+
+                }
+
+            }
+
+            const clickRadius = 0.04;
+
+            if (
+                nearestCell &&
+                nearestDistance <= clickRadius
+            ) {
+
+                console.log(
+                    "Casella cliccata:",
+                    nearestCell.id
+                );
+
+
+                // ==============================
+                // PEDINA SELEZIONATA:
+                // SPOSTAMENTO SULLA CASELLA
+                // ==============================
+
+                if (Game.selectedPlayer) {
+
+                    Game.selectedPlayer.cellId =
+                        nearestCell.id;
+
+                    console.log(
+                        `${Game.selectedPlayer.name} spostato sulla casella ${nearestCell.id}`
+                    );
+
+                    Game.selectedPlayer = null;
+
+                    Renderer.refresh();
+
+                    return;
+
+                }
+
+
+                // ==============================
+                // NESSUNA PEDINA SELEZIONATA:
+                // APRE IL CONTENUTO DELLA CASELLA
+                // ==============================
+
+                if (nearestCell.image) {
+
+                    console.log(
+                        "Immagine collegata:",
+                        nearestCell.image
+                    );
+
+                    Popup.showImage(
+                        nearestCell.image
+                    );
+
+                }
+                else if (nearestCell.video) {
+
+                    console.log(
+                        "Video collegato:",
+                        nearestCell.video
+                    );
+
+                    Popup.showVideo(
+                        nearestCell.video
+                    );
+
+                }
+                else if (nearestCell.audio) {
+
+                    console.log(
+                        "Audio collegato:",
+                        nearestCell.audio
+                    );
+
+                    Popup.showAudio(
+                        nearestCell.audio
+                    );
+
+                }
+
+            }
+            return;
+        }
+
+        // ==============================
+        // MODALITÀ CONFIG
+        // ==============================
+
+        if (Game.mode !== "config") {
+            return;
+        }
+
+        const cell = {
+
+            id: Game.cells.length,
+
+            position: relative,
+
+            image: null,
+
+            video: null,
+
+            audio: null
+
+        };
+
+        Game.cells.push(cell);
+
+        Renderer.drawCellNumber(cell);
+
+        Game.log(
+            `Click: x=${relative.x.toFixed(4)}  y=${relative.y.toFixed(4)}`
+        );
+
+    },
+
+    exportJSON() {
+        console.log(Game.cells);
+        
+        const data = {
+
+            version: "1.0",
+
+            cells: Game.cells
+
+        };
+
+        const json = JSON.stringify(
+
+            data,
+
+            null,
+
+            4
+
+        );
+
+        const blob = new Blob(
+
+            [json],
+
+            {
+
+                type: "application/json"
+
+            }
+
+        );
+
+        const link = document.createElement("a");
+
+        link.href = URL.createObjectURL(blob);
+
+        link.download = "caselle.json";
+
+        link.click();
+
+        URL.revokeObjectURL(link.href);
+
+        Game.log("JSON esportato");
+
+    },
+
+    updateNumbersButton() {
+
+        if (!this.numbersButton) return;
+
+        this.numbersButton.textContent =
+            Game.showNumbers
+                ? "Nascondi Numeri"
+                : "Mostra Numeri";
+
+    }
+};
