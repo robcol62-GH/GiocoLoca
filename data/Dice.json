@@ -1,52 +1,60 @@
 [
-    {
-        "id": "NUMERI",
-        "name": "Dado Numeri",
+ {
+    "id": "NUMERI",
+    "name": "Dado Numeri",
+    "type": "numbers",
 
-        "faces": [
+    "faces": [
 
-            {
-                "id": "UNO",
-                "text": "1",
-                "value": 1,
-                "image": null
-            },
+        {
+            "id": "UNO",
+            "text": "1",
+            "value": 1,
+            "image": null
+        },
 
-            {
-                "id": "DUE",
-                "text": "2",
-                "value": 2,
-                "image": null
-            },
+        {
+            "id": "DUE",
+            "text": "2",
+            "value": 2,
+            "image": null
+        },
 
-            {
-                "id": "TRE",
-                "text": "3",
-                "value": 3,
-                "image": null
-            },
+        {
+            "id": "TRE",
+            "text": "3",
+            "value": 3,
+            "image": null
+        },
 
-            {
-                "id": "QUATTRO",
-                "text": "4",
-                "value": 4,
-                "image": null
-            },
+        {
+            "id": "QUATTRO",
+            "text": "4",
+            "value": 4,
+            "image": null
+        },
 
-            {
-                "id": "CINQUE",
-                "text": "5",
-                "value": 5,
-                "image": null
-            },
+        {
+            "id": "CINQUE",
+            "text": "5",
+            "value": 5,
+            "image": null
+        },
 
-            {
-                "id": "SEI",
-                "text": "6",
-                "value": 6,
-                "image": null
-            }
+        {
+            "id": "SEI",
+            "text": "6",
+            "value": 6,
+            "image": null
+        }
 
-        ]
-    }
+    ]
+},
+
+{
+    "id": "PLAYERS",
+    "name": "Selettore Giocatori",
+    "type": "players"
+}
+
 ]

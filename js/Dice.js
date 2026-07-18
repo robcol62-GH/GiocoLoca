@@ -34,6 +34,19 @@ const Dice = {
 
         }
 
+        // Selettore giocatori
+        if (dice.type === "players") {
+
+            const index = Math.floor(
+                Math.random() * Game.players.length
+            );
+            console.log("Giocatori:", Game.players.length);
+            console.log("Indice estratto:", index);
+            return Game.players[index];
+
+        }
+
+        // Dado classico
         const index = Math.floor(
             Math.random() * dice.faces.length
         );
@@ -58,7 +71,7 @@ const Dice = {
 
             face = this.roll(diceId);
 
-            faceBox.textContent = face.text;
+            this.showFace(faceBox, face);
 
             await new Promise(resolve => setTimeout(resolve, delay));
 
@@ -66,6 +79,27 @@ const Dice = {
 
         faceBox.classList.remove("rolling");
         return face;
-}
+    },
 
+    showFace(faceBox, face) {
+        
+        console.log(face);
+
+        if (face.text !== undefined) {
+
+            faceBox.textContent = face.text;
+            return;
+
+        }
+
+        faceBox.innerHTML = "";
+
+        const token = document.createElement("div");
+
+        token.className = "playerToken";
+        token.style.background = face.color;
+
+        faceBox.appendChild(token);
+
+    }
 };

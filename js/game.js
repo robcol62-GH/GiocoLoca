@@ -97,6 +97,12 @@ const Game = {
 
         }
 
+    },
+ 
+    getPlayersOnCell(cellId) {
+
+       return this.players.filter(player => player.cellId === cellId);
+
     }
 
 };

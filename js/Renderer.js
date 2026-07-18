@@ -242,7 +242,20 @@ const Renderer = {
 
         pawn.dataset.playerId = player.id;
 
-        pawn.addEventListener("click", () => {
+            // Quando una pedina è selezionata per lo spostamento,
+            // le altre non devono intercettare il click.
+            // In questo modo il click raggiunge direttamente la casella.
+            if (
+                Game.selectedPlayer &&
+                Game.selectedPlayer.id !== player.id
+            ) {
+                pawn.style.pointerEvents = "none";
+            } else {
+                pawn.style.pointerEvents = "auto";
+            }
+        pawn.addEventListener("click", (event) => {
+
+            event.stopPropagation();
 
             // Modalità Director
             if (Game.director.enabled &&
@@ -254,7 +267,6 @@ const Renderer = {
 
             }
 
-            // comportamento normale
             Game.selectedPlayer = player;
 
             Renderer.refresh();

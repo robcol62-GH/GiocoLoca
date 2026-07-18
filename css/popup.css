@@ -213,3 +213,20 @@
     box-shadow:0 6px 16px rgba(0,0,0,.25);
 
 }
+
+.playerToken{
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    background:red;
+
+    margin:auto;
+
+    border:3px solid white;
+
+    box-shadow:0 0 10px rgba(0,0,0,.4);
+
+}

@@ -68,7 +68,7 @@
             "image": null,
             "video": null,
             "audio": null,
-            "selector": "NUMERI"
+            "selector": "PLAYERS"
         },
         {
             "id": 6,
@@ -90,7 +90,7 @@
             "image": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "NUMERI"
         },
         {
             "id": 8,

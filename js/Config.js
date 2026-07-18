@@ -131,34 +131,45 @@ const Config = {
             // ==============================
             // CLICK SULLA PEDINA
             // ==============================
+            
+            //console.log("Target:", event.target);
+            //console.log("PlayerElement:", playerElement);
+            //console.log("SelectedPlayer =", Game.selectedPlayer);
 
-            const playerElement = event.target.closest(".player");
+            // Se sto già spostando una pedina,
+            // ignoro eventuali click sulle altre pedine.
+            if (!Game.selectedPlayer) {
 
-            if (playerElement && !Game.selectedPlayer) {
+                const playerElement = event.target.closest(".player");
 
-                const playerId = Number(
-                    playerElement.dataset.playerId
-                );
+                if (playerElement) {
 
-                const player = Game.players.find(
-                    player => player.id === playerId
-                );
-
-                if (player) {
-
-                    Game.selectedPlayer = player;
-
-                    console.log(
-                        "Pedina selezionata:",
-                        player.name
+                    const playerId = Number(
+                        playerElement.dataset.playerId
                     );
-                    Renderer.refresh();
+
+                    const player = Game.players.find(
+                        player => player.id === playerId
+                    );
+
+                    if (player) {
+
+                        Game.selectedPlayer = player;
+
+                        console.log(
+                            "Pedina selezionata:",
+                            player.name
+                        );
+
+                        Renderer.refresh();
+
+                    }
+
+                    return;
 
                 }
 
-                return;
-
-            }
+            }            
 
             let nearestCell = null;
             let nearestDistance = Infinity;
@@ -221,6 +232,13 @@ const Config = {
 
                     console.log(
                         `${Game.selectedPlayer.name} spostato sulla casella ${nearestCell.id}`
+                    );
+                    const players = Game.getPlayersOnCell(nearestCell.id);
+
+                    console.log(
+                        "Pedine presenti:",
+                        players.length,
+                        players.map(p => p.color)
                     );
 
                     Game.selectedPlayer = null;
