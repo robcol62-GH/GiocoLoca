@@ -149,6 +149,11 @@ const Renderer = {
             cell => cell.id === player.cellId
         );
 
+        console.log(
+            player.name,
+            player.cellId
+        );
+
         if (!cell) {
 
             Game.log(
@@ -236,6 +241,25 @@ const Renderer = {
         pawn.classList.add("player");
 
         pawn.dataset.playerId = player.id;
+
+        pawn.addEventListener("click", () => {
+
+            // Modalità Director
+            if (Game.director.enabled &&
+                Game.director.step === 1) {
+
+                Director.selectPlayer(player);
+
+                return;
+
+            }
+
+            // comportamento normale
+            Game.selectedPlayer = player;
+
+            Renderer.refresh();
+
+        });
 
         if (
             Game.selectedPlayer &&

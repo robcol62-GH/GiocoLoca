@@ -76,6 +76,19 @@ const Game = {
 
     renderQueue: [],
 
+    director: {
+
+        enabled: true,
+
+        action: null,    //DirectorAction.MOVE,
+
+        selectedPlayer: null,   //player
+
+        selectedCell: null,
+
+        status: ""
+    },
+
     log(message) {
 
         if (this.debug) {

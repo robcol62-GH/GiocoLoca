@@ -8,8 +8,10 @@
                 "y": 0.3549
             },
             "image": null,  
+            "txt": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 1,
@@ -18,8 +20,10 @@
                 "y": 0.4361098671443499
             },
             "image": "Campanella.png",
+            "txt": null,     
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 2,
@@ -29,7 +33,8 @@
             },
             "image": null,
             "video": "P01.mp4",
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 3,
@@ -39,7 +44,9 @@
             },
             "image": null,
             "video": null,
-            "audio": "Audio_ES.mp3"
+            "audio": "Audio_ES.mp3",
+            "selector": null
+
         },
         {
             "id": 4,
@@ -49,7 +56,8 @@
             },
             "image": "LoCa.png",
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": "NUMERI"
         },
         {
             "id": 5,
@@ -59,7 +67,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": "NUMERI"
         },
         {
             "id": 6,
@@ -69,7 +78,8 @@
             },
             "image": "Elle.png",
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 7,
@@ -79,7 +89,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 8,
@@ -89,7 +100,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 9,
@@ -99,7 +111,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 10,
@@ -109,7 +122,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 11,
@@ -119,7 +133,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 12,
@@ -129,7 +144,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 13,
@@ -139,7 +155,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 14,
@@ -149,7 +166,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 15,
@@ -159,7 +177,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 16,
@@ -169,7 +188,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 17,
@@ -179,7 +199,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 18,
@@ -189,7 +210,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 19,
@@ -199,7 +221,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 20,
@@ -209,7 +232,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 21,
@@ -219,7 +243,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 22,
@@ -229,7 +254,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 23,
@@ -239,7 +265,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 24,
@@ -249,7 +276,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 25,
@@ -259,7 +287,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 26,
@@ -269,7 +298,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 27,
@@ -279,7 +309,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 28,
@@ -289,7 +320,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 29,
@@ -299,7 +331,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 30,
@@ -309,7 +342,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 31,
@@ -319,7 +353,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 32,
@@ -329,7 +364,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 33,
@@ -339,7 +375,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 34,
@@ -349,7 +386,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 35,
@@ -359,7 +397,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 36,
@@ -369,7 +408,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 37,
@@ -379,7 +419,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 38,
@@ -389,7 +430,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 39,
@@ -399,7 +441,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 40,
@@ -409,7 +452,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 41,
@@ -419,7 +463,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 42,
@@ -429,7 +474,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 43,
@@ -439,7 +485,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 44,
@@ -449,7 +496,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 45,
@@ -459,7 +507,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 46,
@@ -469,7 +518,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 47,
@@ -479,7 +529,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 48,
@@ -489,7 +540,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 49,
@@ -499,7 +551,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 50,
@@ -509,7 +562,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 51,
@@ -519,7 +573,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 52,
@@ -529,7 +584,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 53,
@@ -539,7 +595,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 54,
@@ -549,7 +606,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 55,
@@ -559,7 +617,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 56,
@@ -569,7 +628,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 57,
@@ -579,7 +639,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 58,
@@ -589,7 +650,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 59,
@@ -599,7 +661,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 60,
@@ -609,7 +672,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 61,
@@ -619,7 +683,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 62,
@@ -629,7 +694,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 63,
@@ -639,7 +705,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 64,
@@ -649,7 +716,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 65,
@@ -659,7 +727,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 66,
@@ -669,7 +738,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 67,
@@ -679,7 +749,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 68,
@@ -689,7 +760,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 69,
@@ -699,7 +771,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         },
         {
             "id": 70,
@@ -709,7 +782,8 @@
             },
             "image": null,
             "video": null,
-            "audio": null
+            "audio": null,
+            "selector": null
         }
     ]
 }

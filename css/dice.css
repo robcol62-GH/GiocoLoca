@@ -1,0 +1,152 @@
+#dicePopup {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.55);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 3000;
+
+}
+
+#diceWindow {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 100%;
+
+}
+
+#diceTitle {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    margin-bottom: 25px;
+
+}
+
+#diceFace {
+
+    /***********
+     MISURE DADO
+    ************/
+    width: 180px;   
+    height: 180px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f4f4f4 100%
+    );
+
+    border: 26px solid #d8d8d8;
+    border-radius: 22px;
+
+    /***********
+     FONT DADO
+    ************/
+    font-size: 100px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: #222;
+
+    user-select: none;
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 14px rgba(0,0,0,.25),
+        inset 0 2px 2px rgba(255,255,255,.9),
+        inset 0 -3px 6px rgba(0,0,0,.08);
+
+    transition:
+        transform .15s,
+        box-shadow .15s;
+
+}
+
+#diceFace:hover {
+
+    transform: scale(1.04);
+
+    box-shadow:
+        0 10px 22px rgba(0,0,0,.30),
+        inset 0 2px 2px rgba(255,255,255,.9),
+        inset 0 -3px 6px rgba(0,0,0,.08);
+
+}
+
+#diceWindow button {
+
+    margin: 10px;
+
+    padding: 10px 25px;
+
+    font-size: 18px;
+
+}
+
+#diceTitle {
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    margin-bottom: 25px;
+
+}
+
+.hidden {
+
+    display: none !important;
+
+}
+#diceFace.rolling {
+
+    animation: diceRoll 0.7s ease-out;
+
+}
+
+@keyframes diceRoll {
+
+    0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+
+    15% {
+        transform: translateY(-8px) scale(1.08) rotate(180deg);
+    }
+
+    35% {
+        transform: translateY(0) scale(1.10) rotate(360deg);
+    }
+
+    55% {
+        transform: translateY(-4px) scale(1.06) rotate(540deg);
+    }
+
+    75% {
+        transform: translateY(0) scale(1.03) rotate(680deg);
+    }
+
+    100% {
+        transform: translateY(0) scale(1) rotate(720deg);
+    }
+
+}

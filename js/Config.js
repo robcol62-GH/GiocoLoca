@@ -183,6 +183,21 @@ const Config = {
 
             const clickRadius = 0.04;
 
+            // ==============================
+            // MODALITÀ DIRECTOR
+            // ==============================
+
+            if (
+                Game.director.enabled &&
+                Game.director.step === 2
+            ) {
+
+                Director.moveSelectedPlayer(nearestCell);
+
+                return;
+
+            }            
+
             if (
                 nearestCell &&
                 nearestDistance <= clickRadius
@@ -222,43 +237,7 @@ const Config = {
                 // APRE IL CONTENUTO DELLA CASELLA
                 // ==============================
 
-                if (nearestCell.image) {
-
-                    console.log(
-                        "Immagine collegata:",
-                        nearestCell.image
-                    );
-
-                    Popup.showImage(
-                        nearestCell.image
-                    );
-
-                }
-                else if (nearestCell.video) {
-
-                    console.log(
-                        "Video collegato:",
-                        nearestCell.video
-                    );
-
-                    Popup.showVideo(
-                        nearestCell.video
-                    );
-
-                }
-                else if (nearestCell.audio) {
-
-                    console.log(
-                        "Audio collegato:",
-                        nearestCell.audio
-                    );
-
-                    Popup.showAudio(
-                        nearestCell.audio
-                    );
-
-                }
-
+                Popup.showCell(nearestCell);
             }
             return;
         }

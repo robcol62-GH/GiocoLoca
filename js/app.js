@@ -36,25 +36,21 @@ async function startApplication() {
 
 
     await Storage.loadCells();
-
+    await Dice.load();
 
     Renderer.refresh();
 
-
     UI.init();
-
 
     Config.init();
 
-
     PlayerSetup.init();
 
+    Director.init();
 
     Game.initialized = true;
 
-
     Game.log("Applicazione pronta");
-
 
     UI.setStatus("🟢 Applicazione pronta");
 
