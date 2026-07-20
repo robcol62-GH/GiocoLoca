@@ -73,6 +73,9 @@ const Config = {
             }
 
         )
+        // Numero minimo di pedine sulla stessa casella
+        // per attivare l'evento di affollamento.
+        Config.CROWDING_LIMIT = 3;
     },
 
     start() {
@@ -234,7 +237,11 @@ const Config = {
                         `${Game.selectedPlayer.name} spostato sulla casella ${nearestCell.id}`
                     );
                     const players = Game.getPlayersOnCell(nearestCell.id);
-
+                    Game.checkCrowding(
+                        nearestCell,
+                        players
+                    );
+                    
                     console.log(
                         "Pedine presenti:",
                         players.length,

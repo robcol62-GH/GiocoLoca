@@ -37,6 +37,7 @@ async function startApplication() {
 
     await Storage.loadCells();
     await Dice.load();
+    await Events.load();
 
     Renderer.refresh();
 

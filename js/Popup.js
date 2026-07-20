@@ -146,36 +146,7 @@ const Popup = {
         });
 
     },
-
-    createDice(diceId) {
-
-        const dice = Dice.get(diceId);
-
-        UI.setStatus("🎲 " + dice.name);
-
-        const window = document.createElement("div");
-
-        window.id = "diceWindow";
-
-        const faceBox = document.createElement("div");
-
-        faceBox.id = "diceFace";
-
-        faceBox.textContent = "?";
-
-        window.appendChild(faceBox);
-
-        faceBox.addEventListener("click", async () => {
-
-            await Dice.animate(faceBox, diceId);
-
-        });
-
-        return window;
-
-    },
-
-    showCell(cell) {
+    buildPopup(data) {
 
         const overlay = this.createOverlay();
 
@@ -207,11 +178,11 @@ const Popup = {
         // Immagine
         //==============================
 
-        if (cell.image) {
+        if (data.image) {
 
             const img = document.createElement("img");
 
-            img.src = "images/card/" + cell.image;
+            img.src = "images/card/" + data.image;
 
             img.alt = "";
 
@@ -223,11 +194,11 @@ const Popup = {
         // Audio
         //==============================
 
-        if (cell.audio) {
+        if (data.audio) {
 
             const audio = document.createElement("audio");
 
-            audio.src = "audio/" + cell.audio;
+            audio.src = "audio/" + data.audio;
 
             audio.controls = true;
 
@@ -241,11 +212,11 @@ const Popup = {
         // Video
         //==============================
 
-        if (cell.video) {
+        if (data.video) {
 
             const video = document.createElement("video");
 
-            video.src = "video/" + cell.video;
+            video.src = "video/" + data.video;
 
             video.controls = true;
 
@@ -259,16 +230,16 @@ const Popup = {
         // AREA TESTO
         //==============================
 
-        console.log("CELL =", cell);
-        console.log("TXT =", cell.txt);
+        //console.log("CELL =", cell);
+        //console.log("TXT =", cell.txt);
         
-        if (cell.txt && cell.txt.trim() !== "") {
+        if (data.txt && data.txt.trim() !== "") {
 
             const textArea = document.createElement("div");
 
             textArea.className = "textArea";
 
-            textArea.textContent = cell.txt;
+            textArea.textContent = data.txt;
 
             window.appendChild(textArea);
 
@@ -278,13 +249,13 @@ const Popup = {
         // AREA SELETTORE
         //==============================
 
-        if (cell.selector) {
+        if (data.selector) {
 
             const selectorArea = document.createElement("div");
 
             selectorArea.className = "selectorArea";
 
-            selectorArea.appendChild(this.createDice(cell.selector));
+            selectorArea.appendChild(this.createDice(data.selector));
 
             window.appendChild(selectorArea);
 
@@ -310,5 +281,43 @@ const Popup = {
 
         window.appendChild(footerArea);
 
+    },
+
+    createDice(diceId) {
+
+        const dice = Dice.get(diceId);
+
+        UI.setStatus("🎲 " + dice.name);
+
+        const window = document.createElement("div");
+
+        window.id = "diceWindow";
+
+        const faceBox = document.createElement("div");
+
+        faceBox.id = "diceFace";
+
+        faceBox.textContent = "?";
+
+        window.appendChild(faceBox);
+
+        faceBox.addEventListener("click", async () => {
+
+            await Dice.animate(faceBox, diceId);
+
+        });
+
+        return window;
+
+    },
+
+    showCell(cell) {
+        this.buildPopup(cell);
+
+    },
+
+    showEvent(event, cell, players) {
+       
+        this.buildPopup(event);            
     }
 };

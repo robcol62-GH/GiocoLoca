@@ -103,6 +103,18 @@ const Game = {
 
        return this.players.filter(player => player.cellId === cellId);
 
+    },
+
+    checkCrowding(cell, players) {
+
+        if (players.length < Config.CROWDING_LIMIT) {
+            return;
+        }
+
+        const event = Events.get("CROWDING");
+
+        Popup.showEvent(event, cell, players);
+
     }
 
 };

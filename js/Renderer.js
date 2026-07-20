@@ -242,17 +242,18 @@ const Renderer = {
 
         pawn.dataset.playerId = player.id;
 
-            // Quando una pedina è selezionata per lo spostamento,
-            // le altre non devono intercettare il click.
-            // In questo modo il click raggiunge direttamente la casella.
-            if (
-                Game.selectedPlayer &&
-                Game.selectedPlayer.id !== player.id
-            ) {
-                pawn.style.pointerEvents = "none";
-            } else {
-                pawn.style.pointerEvents = "auto";
-            }
+        // Quando una pedina è selezionata per lo spostamento,
+        // le altre non devono intercettare il click.
+        // In questo modo il click raggiunge direttamente la casella.
+        if (
+            Game.selectedPlayer &&
+            Game.selectedPlayer.id !== player.id
+        ) {
+            pawn.style.pointerEvents = "none";
+        } else {
+            pawn.style.pointerEvents = "auto";
+        }
+
         pawn.addEventListener("click", (event) => {
 
             event.stopPropagation();

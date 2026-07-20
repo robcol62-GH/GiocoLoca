@@ -1,0 +1,8 @@
+[
+    {
+        "id": "CROWDING",
+        "txt": "Sulla casella sono presenti più concorrenti.",
+        "image": "",
+        "selector": "PLAYERS"
+    }
+]
