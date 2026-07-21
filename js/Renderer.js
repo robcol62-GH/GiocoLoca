@@ -98,7 +98,8 @@ const Renderer = {
     refresh() {
 
         Game.log("Renderer refresh");
-
+        //console.log("=== INIZIO REFRESH ===");
+        //console.table(Game.players);
         Board.clearOverlay();
 
 
@@ -111,7 +112,8 @@ const Renderer = {
             }
 
         }
-
+        //console.log("=== PLAYERS ===");
+        //console.table(Game.players);
 
         for (const player of Game.players) {
 
@@ -142,18 +144,45 @@ const Renderer = {
         );
 
     },
+    drawOca(x, y, player, dimensione = Config.OCA_SIZE) {
+
+        const oca = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "image"
+        );
+
+        oca.setAttribute("href", "images/oche/oca_base.png");
+
+        oca.setAttribute("x", x - dimensione / 2);
+        oca.setAttribute("y", y - dimensione / 2);
+
+        oca.setAttribute("width", dimensione);
+        oca.setAttribute("height", dimensione);
+
+        oca.classList.add("player");
+        oca.dataset.playerId = player.id;
+
+        // riferimento all'elemento SVG
+        player.element = oca;
+        if (Game.selectedPlayer === player) {
+            oca.classList.add("player-selected");
+        }
+        Game.svg.appendChild(oca);
+
+        return oca;
+    },
 
     drawPlayer(player) {
 
         const cell = Game.cells.find(
             cell => cell.id === player.cellId
         );
-
+/*
         console.log(
             player.name,
             player.cellId
         );
-
+*/
         if (!cell) {
 
             Game.log(
@@ -241,14 +270,22 @@ const Renderer = {
                 * spacing;
 
         }
-        const pawn = this.drawCircle(
+        console.log({
+            player: player.name,
+            cellId: player.cellId,
+            baseX,
+            baseY,
+            offsetX,
+            offsetY,
+            finalX: baseX + offsetX,
+            finalY: baseY + offsetY
+        });
+        const pawn = this.drawOca(
 
             baseX + offsetX,
             baseY + offsetY,
 
-            18,
-
-            player.color
+            player
 
         );
 
@@ -259,6 +296,7 @@ const Renderer = {
         // Quando una pedina è selezionata per lo spostamento,
         // le altre non devono intercettare il click.
         // In questo modo il click raggiunge direttamente la casella.
+        /*
         if (
             Game.selectedPlayer &&
             Game.selectedPlayer.id !== player.id
@@ -267,9 +305,11 @@ const Renderer = {
         } else {
             pawn.style.pointerEvents = "auto";
         }
+        */
 
         pawn.addEventListener("click", (event) => {
 
+            console.log("CLICK PEDINA", player.id);
             event.stopPropagation();
 
             // Modalità Director
@@ -282,8 +322,8 @@ const Renderer = {
 
             }
 
+            // Seleziona quella cliccata
             Game.selectedPlayer = player;
-
             Renderer.refresh();
 
         });
@@ -300,5 +340,59 @@ const Renderer = {
             pawn.setAttribute("stroke-dasharray", "5 3");
 
         }
+    },
+        createPlayers() {
+
+        for (const player of Game.players) {
+
+            if (player.element) continue;
+
+            const oca = document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "image"
+            );
+
+            oca.setAttribute(
+                "href",
+                "images/oche/oca_base.png"
+            );
+
+            oca.setAttribute(
+                "width",
+                Config.OCA_SIZE
+            );
+
+            oca.setAttribute(
+                "height",
+                Config.OCA_SIZE
+            );
+
+            oca.classList.add("player");
+
+            oca.dataset.playerId = player.id;
+
+            oca.addEventListener("click", (event) => {
+
+                event.stopPropagation();
+
+                if (
+                    Game.director.enabled &&
+                    Game.director.step === 1
+                ) {
+                    Director.selectPlayer(player);
+                    return;
+                }
+
+                Game.selectedPlayer = player;
+                Renderer.refresh();
+
+            });
+
+            player.element = oca;
+
+            Game.svg.appendChild(oca);
+
+        }
+
     }
 };

@@ -13,6 +13,10 @@ const Config = {
     // Numero minimo di pedine sulla stessa casella per attivare l'evento di affollamento.
     CROWDING_LIMIT:3,
 
+    // Grandezza Segnalino OCA
+    OCA_SIZE:46,
+
+
     START_CELL_OFFSET_X: 28,
     START_CELL_OFFSET_Y: 0,
 
@@ -222,7 +226,8 @@ const Config = {
                 nearestCell &&
                 nearestDistance <= clickRadius
             ) {
-
+                
+                console.log("CLICK CASELLA");
                 console.log(
                     "Casella cliccata:",
                     nearestCell.id
@@ -236,13 +241,10 @@ const Config = {
 
                 if (Game.selectedPlayer) {
 
-                    Game.selectedPlayer.cellId =
-                        nearestCell.id;
+                    Game.selectedPlayer.cellId = nearestCell.id;
 
-                    console.log(
-                        `${Game.selectedPlayer.name} spostato sulla casella ${nearestCell.id}`
-                    );
                     const players = Game.getPlayersOnCell(nearestCell.id);
+                   
                     Game.checkCrowding(
                         nearestCell,
                         players
