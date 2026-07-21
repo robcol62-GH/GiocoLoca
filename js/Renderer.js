@@ -169,6 +169,15 @@ const Renderer = {
             cell.position.y
         );
 
+        let baseX = point.x;
+        let baseY = point.y;
+
+        if (player.cellId === 0) {
+
+            baseX += Config.START_CELL_OFFSET_X;
+            baseY += Config.START_CELL_OFFSET_Y;
+
+        };
 
         // Trova tutte le pedine presenti sulla stessa casella
         const playersOnSameCell = Game.players.filter(
@@ -199,20 +208,26 @@ const Renderer = {
 
             const playersPerRow = 4;
 
-            const column =
-                playerIndex % playersPerRow;
+            const totalPlayers = playersOnSameCell.length;
+            const totalRows = Math.ceil(totalPlayers / playersPerRow);
 
-            const row =
-                Math.floor(playerIndex / playersPerRow);
+            const row = Math.floor(playerIndex / playersPerRow);
+            const column = playerIndex % playersPerRow;
 
+            const playersInThisRow = Math.min(
+                playersPerRow,
+                totalPlayers - row * playersPerRow
+            );
+
+            // Centro orizzontale della riga
             offsetX =
-                column * spacing;
+                (column - (playersInThisRow - 1) / 2) * spacing;
 
+            // Centro verticale dell'intero gruppo
             offsetY =
-                -row * spacing;
+                (row - (totalRows - 1) / 2) * spacing;
 
         }
-
 
         // ==============================
         // ALTRE CASELLE:
@@ -228,9 +243,8 @@ const Renderer = {
         }
         const pawn = this.drawCircle(
 
-            point.x + offsetX,
-
-            point.y + offsetY,
+            baseX + offsetX,
+            baseY + offsetY,
 
             18,
 

@@ -254,7 +254,8 @@ const Popup = {
             const selectorArea = document.createElement("div");
 
             selectorArea.className = "selectorArea";
-
+            
+            console.log("SELECTOR =", data.selector);
             selectorArea.appendChild(this.createDice(data.selector));
 
             window.appendChild(selectorArea);
@@ -312,7 +313,9 @@ const Popup = {
     },
 
     showCell(cell) {
-        this.buildPopup(cell);
+    // La casella 0 (partenza) non ha alcuna azione
+        if (!cell || cell.id == 0) return;        
+            this.buildPopup(cell);
 
     },
 

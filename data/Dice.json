@@ -55,6 +55,36 @@
     "id": "PLAYERS",
     "name": "Selettore Giocatori",
     "type": "players"
-}
+},
 
+{
+    "id": "IMG3",
+    "name": "Dado Animali",
+    "type": "images",
+
+    "faces": [
+
+        {
+            "id": "CANE",
+            "text": null,
+            "value": 1,
+            "image": "cane.png"
+        },
+
+        {
+            "id": "GATTO",
+            "text": null,
+            "value": 2,
+            "image": "gatto.png"
+        },
+
+        {
+            "id": "LEONE",
+            "text": null,
+            "value": 3,
+            "image": "leone.png"
+        }
+
+    ]
+}
 ]

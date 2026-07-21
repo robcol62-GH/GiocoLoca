@@ -1,5 +1,5 @@
 {
-    "version": "1.0",
+    "version": "1.0 - Gioco a Gruppi",
     "cells": [
         {
             "id": 0,
@@ -101,7 +101,7 @@
             "image": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "IMG3"
         },
         {
             "id": 9,

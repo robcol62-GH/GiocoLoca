@@ -7,6 +7,15 @@
 
 const Config = {
 
+    // Numero Massimo di Giocatori
+    MAX_PLAYERS:20,
+
+    // Numero minimo di pedine sulla stessa casella per attivare l'evento di affollamento.
+    CROWDING_LIMIT:3,
+
+    START_CELL_OFFSET_X: 28,
+    START_CELL_OFFSET_Y: 0,
+
     init() {
 
         this.button =
@@ -73,9 +82,6 @@ const Config = {
             }
 
         )
-        // Numero minimo di pedine sulla stessa casella
-        // per attivare l'evento di affollamento.
-        Config.CROWDING_LIMIT = 3;
     },
 
     start() {
@@ -241,7 +247,7 @@ const Config = {
                         nearestCell,
                         players
                     );
-                    
+
                     console.log(
                         "Pedine presenti:",
                         players.length,

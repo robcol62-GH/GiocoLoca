@@ -82,24 +82,43 @@ const Dice = {
     },
 
     showFace(faceBox, face) {
-        
-        console.log(face);
 
-        if (face.text !== undefined) {
-
-            faceBox.textContent = face.text;
+        if (!face) {
+            faceBox.innerHTML = "";
             return;
-
         }
 
         faceBox.innerHTML = "";
 
-        const token = document.createElement("div");
+        //==========================
+        // IMMAGINE
+        //==========================
 
-        token.className = "playerToken";
-        token.style.background = face.color;
+        if (face.image) {
 
-        faceBox.appendChild(token);
+            const img = document.createElement("img");
+            img.src = "images/selectors/" + face.image;
+            img.className = "selectorImage";
+            faceBox.appendChild(img);
 
+        }
+        //==========================
+        // TESTO
+        //==========================
+        else if (typeof face.text === "string" && face.text.trim() !== "") {
+            faceBox.textContent = face.text;
+        }
+        //==========================
+        // PEDINA
+        //==========================
+        else {
+
+            const token = document.createElement("div");
+            token.className = "playerToken";
+            token.style.background = face.color;
+            faceBox.appendChild(token);
+
+        }
     }
+
 };

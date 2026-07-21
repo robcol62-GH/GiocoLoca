@@ -22,38 +22,8 @@ const Game = {
 
     players: [],
 
-    availablePlayers: [
+    availablePlayers: [],
 
-        {
-            id: 1,
-            name: "Giocatore 1",
-            cellId: 0,
-            color: "red"
-        },
-
-        {
-            id: 2,
-            name: "Giocatore 2",
-            cellId: 0,
-            color: "blue"
-        },
-
-        {
-            id: 3,
-            name: "Giocatore 3",
-            cellId: 0,
-            color: "green"
-        },
-
-        {
-            id: 4,
-            name: "Giocatore 4",
-            cellId: 0,
-            color: "gold"
-        }
-
-    ],
-    
     // Elenco delle caselle configurate
     cells: [],
 
@@ -114,6 +84,47 @@ const Game = {
         const event = Events.get("CROWDING");
 
         Popup.showEvent(event, cell, players);
+
+    },
+    createAvailablePlayers() {
+
+        this.availablePlayers = [];
+
+        const colors = [
+            "red",
+            "blue",
+            "green",
+            "gold",
+            "purple",
+            "orange",
+            "cyan",
+            "magenta",
+            "brown",
+            "lime",
+            "pink",
+            "teal",
+            "navy",
+            "olive",
+            "coral",
+            "violet",
+            "turquoise",
+            "crimson",
+            "chocolate",
+            "gray"
+        ];
+
+        for (let i = 1; i <= Config.MAX_PLAYERS; i++) {
+
+            this.availablePlayers.push({
+
+                id: i,
+                name: `Giocatore ${i}`,
+                cellId: 0,
+                color: colors[(i - 1) % colors.length]
+
+            });
+
+        }
 
     }
 

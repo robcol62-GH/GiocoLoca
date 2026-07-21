@@ -44,6 +44,7 @@ async function startApplication() {
     UI.init();
 
     Config.init();
+    Game.createAvailablePlayers();
 
     PlayerSetup.init();
 

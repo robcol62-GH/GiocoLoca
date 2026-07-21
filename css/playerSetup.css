@@ -50,11 +50,13 @@
 
 #playerChoices {
 
-    display: flex;
+    display: grid;
 
-    gap: 15px;
+    grid-template-columns: repeat(5, 1fr);
 
-    justify-content: center;
+    gap: 8px;
+
+    margin-top: 15px;
 
 }
 

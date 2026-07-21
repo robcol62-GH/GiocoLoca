@@ -1,23 +1,48 @@
 const PlayerSetup = {
 
     init() {
+        
+        console.log(">>> PlayerSetup INIT - BUILD TEST <<<");
 
         const setup =
             document.getElementById("playerSetup");
 
-        const buttons =
-            document.querySelectorAll(
-                "#playerChoices button"
-            );
-
-        if (!setup || !buttons.length) {
+        if (!setup) {
 
             return;
 
         }
 
+        //==============================
+        // CREA I PULSANTI GIOCATORI
+        //==============================
 
-        buttons.forEach(button => {
+        const container =
+            document.getElementById("playerChoices");
+
+        container.innerHTML = "";
+
+        for (let i = 1; i <= Config.MAX_PLAYERS; i++) {
+
+            const button =
+                document.createElement("button");
+
+            button.dataset.players = i;
+
+            button.textContent = i;
+
+            container.appendChild(button);
+            console.log("Creato pulsante", i);
+
+        }
+        console.log(
+            "Numero pulsanti:",
+            container.children.length
+        );
+        const buttons =
+            container.querySelectorAll("button");
+
+            buttons.forEach(button => {
 
             button.addEventListener(
 
@@ -90,11 +115,6 @@ const PlayerSetup = {
             setup.style.display = "none";
 
         }
-
-
-        console.log(
-            `Partita iniziata con ${numberOfPlayers} giocatori`
-        );
 
     },
 
