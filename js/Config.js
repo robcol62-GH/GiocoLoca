@@ -16,6 +16,9 @@ const Config = {
     // Grandezza Segnalino OCA
     OCA_SIZE:46,
 
+    PLAYER_RADIUS:12,
+    PLAYER_CIRCLE_RADIUS: 26,
+    CLICK_RADIUS:0.04,
 
     START_CELL_OFFSET_X: 28,
     START_CELL_OFFSET_Y: 0,
@@ -151,39 +154,7 @@ const Config = {
 
             // Se sto già spostando una pedina,
             // ignoro eventuali click sulle altre pedine.
-            if (!Game.selectedPlayer) {
-
-                const playerElement = event.target.closest(".player");
-
-                if (playerElement) {
-
-                    const playerId = Number(
-                        playerElement.dataset.playerId
-                    );
-
-                    const player = Game.players.find(
-                        player => player.id === playerId
-                    );
-
-                    if (player) {
-
-                        Game.selectedPlayer = player;
-
-                        console.log(
-                            "Pedina selezionata:",
-                            player.name
-                        );
-
-                        Renderer.refresh();
-
-                    }
-
-                    return;
-
-                }
-
-            }            
-
+            
             let nearestCell = null;
             let nearestDistance = Infinity;
 
@@ -205,7 +176,7 @@ const Config = {
 
             }
 
-            const clickRadius = 0.04;
+            const clickRadius = Config.CLICK_RADIUS;
 
             // ==============================
             // MODALITÀ DIRECTOR
@@ -259,6 +230,7 @@ const Config = {
                     Game.selectedPlayer = null;
 
                     Renderer.refresh();
+                    Laghetto.refresh();
 
                     return;
 

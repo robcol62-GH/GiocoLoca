@@ -42,7 +42,6 @@ const Renderer = {
         circle.setAttribute("cy", y);
 
         circle.setAttribute("r", radius);
-
         circle.setAttribute("fill", color);
 
         Game.svg.appendChild(circle);
@@ -144,35 +143,53 @@ const Renderer = {
         );
 
     },
-    drawOca(x, y, player, dimensione = Config.OCA_SIZE) {
+    drawOca(player, dimensione = Config.OCA_SIZE) {
 
         const oca = document.createElementNS(
             "http://www.w3.org/2000/svg",
             "image"
         );
 
-        oca.setAttribute("href", "images/oche/oca_base.png");
+        oca.setAttribute(
+            "href",
+            "images/oche/oca_base.png"
+        );
 
-        oca.setAttribute("x", x - dimensione / 2);
-        oca.setAttribute("y", y - dimensione / 2);
+        oca.setAttribute(
+            "width",
+            dimensione
+        );
 
-        oca.setAttribute("width", dimensione);
-        oca.setAttribute("height", dimensione);
+        oca.setAttribute(
+            "height",
+            dimensione
+        );
 
         oca.classList.add("player");
+
         oca.dataset.playerId = player.id;
 
-        // riferimento all'elemento SVG
         player.element = oca;
+
         if (Game.selectedPlayer === player) {
             oca.classList.add("player-selected");
         }
+
         Game.svg.appendChild(oca);
 
         return oca;
+
     },
 
     drawPlayer(player) {
+
+        if (
+            !player ||
+            player.id === undefined ||
+            player.cellId === undefined
+        ) {
+            return;
+        }
 
         const cell = Game.cells.find(
             cell => cell.id === player.cellId
@@ -270,42 +287,42 @@ const Renderer = {
                 * spacing;
 
         }
-        console.log({
-            player: player.name,
-            cellId: player.cellId,
-            baseX,
-            baseY,
-            offsetX,
-            offsetY,
-            finalX: baseX + offsetX,
-            finalY: baseY + offsetY
-        });
-        const pawn = this.drawOca(
 
+        let radius = Config.PLAYER_RADIUS;
+
+        const selected =
+            Game.selectedPlayer &&
+            Game.selectedPlayer.id === player.id;
+
+        if (selected) {
+            radius += 4;
+        }
+
+        const circle = this.drawCircle(
             baseX + offsetX,
             baseY + offsetY,
+            radius,
+            player.color
+        );
 
-            player
+        if (selected) {
+            circle.setAttribute("stroke", "black");
+            circle.setAttribute("stroke-width", "4");
+        }        
+        let pawn = this.drawOca(
+            player,
+            Config.OCA_SIZE
+        );
 
+        this.positionPlayer(
+            player,
+            baseX + offsetX,
+            baseY + offsetY,
+            Config.OCA_SIZE
         );
 
         pawn.classList.add("player");
-
         pawn.dataset.playerId = player.id;
-
-        // Quando una pedina è selezionata per lo spostamento,
-        // le altre non devono intercettare il click.
-        // In questo modo il click raggiunge direttamente la casella.
-        /*
-        if (
-            Game.selectedPlayer &&
-            Game.selectedPlayer.id !== player.id
-        ) {
-            pawn.style.pointerEvents = "none";
-        } else {
-            pawn.style.pointerEvents = "auto";
-        }
-        */
 
         pawn.addEventListener("click", (event) => {
 
@@ -327,72 +344,31 @@ const Renderer = {
             Renderer.refresh();
 
         });
-
         if (
             Game.selectedPlayer &&
-            Game.selectedPlayer.id === player.id
+            Game.selectedPlayer.id !== player.id
         ) {
-
-            pawn.setAttribute("stroke", "black");
-
-            pawn.setAttribute("stroke-width", "4");
-
-            pawn.setAttribute("stroke-dasharray", "5 3");
-
+            pawn.style.pointerEvents = "none";
+        } else {
+            pawn.style.pointerEvents = "auto";
         }
     },
-        createPlayers() {
+    
+    positionPlayer(player, x, y, dimensione = Config.OCA_SIZE) {
 
-        for (const player of Game.players) {
+        const oca = player.element;
 
-            if (player.element) continue;
+        if (!oca) return;
 
-            const oca = document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "image"
-            );
+        oca.setAttribute(
+            "x",
+            x - dimensione / 2
+        );
 
-            oca.setAttribute(
-                "href",
-                "images/oche/oca_base.png"
-            );
+        oca.setAttribute(
+            "y",
+            y - dimensione / 2
+        );
 
-            oca.setAttribute(
-                "width",
-                Config.OCA_SIZE
-            );
-
-            oca.setAttribute(
-                "height",
-                Config.OCA_SIZE
-            );
-
-            oca.classList.add("player");
-
-            oca.dataset.playerId = player.id;
-
-            oca.addEventListener("click", (event) => {
-
-                event.stopPropagation();
-
-                if (
-                    Game.director.enabled &&
-                    Game.director.step === 1
-                ) {
-                    Director.selectPlayer(player);
-                    return;
-                }
-
-                Game.selectedPlayer = player;
-                Renderer.refresh();
-
-            });
-
-            player.element = oca;
-
-            Game.svg.appendChild(oca);
-
-        }
-
-    }
+    }    
 };

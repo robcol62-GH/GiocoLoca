@@ -30,7 +30,7 @@ async function startApplication() {
     Board.init();
 
     Board.debug();
-
+    Laghetto.init();
 
     Renderer.init();
 

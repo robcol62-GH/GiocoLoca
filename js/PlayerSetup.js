@@ -105,8 +105,9 @@ const PlayerSetup = {
 
 
         Renderer.refresh();
+        Laghetto.show();
 
-
+        
         const setup =
             document.getElementById("playerSetup");
 
