@@ -34,7 +34,7 @@ const Renderer = {
 
     },
 
-    drawCircle(x, y, radius = 12, color = "red") {
+    drawCircle(parent, x, y, radius, color) {
 
         const circle = this.create("circle");
 
@@ -42,29 +42,13 @@ const Renderer = {
         circle.setAttribute("cy", y);
 
         circle.setAttribute("r", radius);
-        circle.setAttribute("fill", color);
+        circle.setAttribute("fill", "none");
+        circle.setAttribute("stroke", color);
+        circle.setAttribute("stroke-width", 4);
 
-        Game.svg.appendChild(circle);
+        parent.appendChild(circle);
 
         return circle;
-
-    },
-
-    drawCircleRelative(x, y, radius = 12, color = "red") {
-
-        const point = Board.relativeToBoard(x, y);
-
-        this.drawCircle(
-
-            point.x,
-
-            point.y,
-
-            radius,
-
-            color
-
-        );
 
     },
 
@@ -143,18 +127,15 @@ const Renderer = {
         );
 
     },
-    drawOca(player, dimensione = Config.OCA_SIZE) {
+    drawOca(parent, player, dimensione = Config.OCA_SIZE) {
 
         const oca = document.createElementNS(
             "http://www.w3.org/2000/svg",
             "image"
         );
 
-        oca.setAttribute(
-            "href",
-            "images/oche/oca_base.png"
-        );
-
+        oca.setAttribute("href", player.pawnImage);
+        
         oca.setAttribute(
             "width",
             dimensione
@@ -175,7 +156,7 @@ const Renderer = {
             oca.classList.add("player-selected");
         }
 
-        Game.svg.appendChild(oca);
+        parent.appendChild(oca);
 
         return oca;
 
@@ -190,16 +171,20 @@ const Renderer = {
         ) {
             return;
         }
+        // I giocatori nel Laghetto non si disegnano sul tabellone
 
+        if (player.cellId === 0) {
+            return;
+        }
         const cell = Game.cells.find(
             cell => cell.id === player.cellId
         );
-/*
         console.log(
             player.name,
-            player.cellId
+            player.cellId,
+            cell.id
         );
-*/
+
         if (!cell) {
 
             Game.log(
@@ -217,13 +202,6 @@ const Renderer = {
 
         let baseX = point.x;
         let baseY = point.y;
-
-        if (player.cellId === 0) {
-
-            baseX += Config.START_CELL_OFFSET_X;
-            baseY += Config.START_CELL_OFFSET_Y;
-
-        };
 
         // Trova tutte le pedine presenti sulla stessa casella
         const playersOnSameCell = Game.players.filter(
@@ -243,82 +221,59 @@ const Renderer = {
         let offsetX = 0;
         let offsetY = 0;
 
-
-        // ==============================
-        // CASELLA ZERO:
-        // pedine da sinistra verso destra,
-        // poi nuova riga sopra
-        // ==============================
-
-        if (player.cellId === 0) {
-
-            const playersPerRow = 4;
-
-            const totalPlayers = playersOnSameCell.length;
-            const totalRows = Math.ceil(totalPlayers / playersPerRow);
-
-            const row = Math.floor(playerIndex / playersPerRow);
-            const column = playerIndex % playersPerRow;
-
-            const playersInThisRow = Math.min(
-                playersPerRow,
-                totalPlayers - row * playersPerRow
-            );
-
-            // Centro orizzontale della riga
-            offsetX =
-                (column - (playersInThisRow - 1) / 2) * spacing;
-
-            // Centro verticale dell'intero gruppo
-            offsetY =
-                (row - (totalRows - 1) / 2) * spacing;
-
-        }
-
         // ==============================
         // ALTRE CASELLE:
         // disposizione centrata
         // ==============================
 
-        else {
+        offsetX =
+            (playerIndex - (playersOnSameCell.length - 1) / 2)
+            * spacing;
 
-            offsetX =
-                (playerIndex - (playersOnSameCell.length - 1) / 2)
-                * spacing;
-
-        }
-
-        let radius = Config.PLAYER_RADIUS;
 
         const selected =
             Game.selectedPlayer &&
             Game.selectedPlayer.id === player.id;
-
-        if (selected) {
-            radius += 4;
-        }
-
-        const circle = this.drawCircle(
-            baseX + offsetX,
-            baseY + offsetY,
-            radius,
-            player.color
+       
+        const group = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "g"
         );
 
+        group.classList.add("player");
+        group.dataset.playerId = player.id;
+
+        Game.svg.appendChild(group);
+
+        const ringRadius = Math.round(Config.OCA_SIZE / 2) + 3;
+
         if (selected) {
-            circle.setAttribute("stroke", "black");
-            circle.setAttribute("stroke-width", "4");
-        }        
-        let pawn = this.drawOca(
+
+            this.drawCircle(
+                group,
+                baseX + offsetX,
+                baseY + offsetY,
+                ringRadius,
+                "black"
+            );
+
+        }
+
+        const ocaSize = selected
+            ? Config.OCA_SIZE + 6
+            : Config.OCA_SIZE;
+
+        const pawn = this.drawOca(
+            group,
             player,
-            Config.OCA_SIZE
+            ocaSize
         );
 
         this.positionPlayer(
             player,
             baseX + offsetX,
             baseY + offsetY,
-            Config.OCA_SIZE
+            ocaSize
         );
 
         pawn.classList.add("player");

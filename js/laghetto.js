@@ -3,9 +3,34 @@ const Laghetto = {
     firstShow: true,
 
     init() {
+        const body = document.getElementById("laghettoBody");
 
+        body.addEventListener("click", (event) => {
+
+            // Se ho cliccato una pedina, lascia gestire il click alla pedina
+            if (event.target.closest(".laghettoPawn")) {
+                return;
+            }
+
+            // Nessuna pedina selezionata
+            if (!Game.selectedPlayer) {
+                return;
+            }
+
+            console.log(
+                "Pedina",
+                Game.selectedPlayer.id,
+                "ritornata nel Laghetto"
+            );
+
+            Game.selectedPlayer.cellId = 0;
+            Game.selectedPlayer = null;
+
+            Renderer.refresh();
+            Laghetto.refresh();
+
+        });    
         Game.log("Laghetto inizializzato");
-
     },
 
     show() {
@@ -75,10 +100,15 @@ const Laghetto = {
 
             pawn.appendChild(img);
             body.appendChild(pawn);            
-            pawn.addEventListener("click", () => {
+            pawn.addEventListener("click", (event) => {
+
+                event.stopPropagation();
+
                 Game.selectedPlayer = player;
+
                 Renderer.refresh();
                 Laghetto.refresh();
+
             });
         });
         this.firstShow = false;

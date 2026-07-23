@@ -313,9 +313,21 @@ const Popup = {
     },
 
     showCell(cell) {
-    // La casella 0 (partenza) non ha alcuna azione
-        if (!cell || cell.id == 0) return;        
-            this.buildPopup(cell);
+
+        if (!cell || cell.id == 0) return;
+
+        const hasContent =
+            cell.txt?.trim() ||
+            cell.image ||
+            cell.audio ||
+            cell.video ||
+            cell.selector;
+
+        if (!hasContent) {
+            return;
+        }
+
+        this.buildPopup(cell);
 
     },
 

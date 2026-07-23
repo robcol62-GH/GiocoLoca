@@ -46,6 +46,8 @@ const Game = {
 
     renderQueue: [],
 
+    pawnImage: null,
+
     director: {
 
         enabled: true,
@@ -93,10 +95,11 @@ const Game = {
         const colors = [
             "red",
             "blue",
-            "green",
-            "gold",
-            "purple",
             "orange",
+            "purple",
+            "violet",
+            "gold",
+            "green",
             "cyan",
             "magenta",
             "brown",
@@ -106,11 +109,16 @@ const Game = {
             "navy",
             "olive",
             "coral",
-            "violet",
             "turquoise",
             "crimson",
             "chocolate",
             "gray"
+        ];
+        const pawnImages = [
+            "images/oche/oca_rossa.png",
+            "images/oche/oca_blu.png",
+            "images/oche/oca_arancione.png",
+            "images/oche/oca_viola.png"
         ];
 
         for (let i = 1; i <= Config.MAX_PLAYERS; i++) {
@@ -120,12 +128,15 @@ const Game = {
                 id: i,
                 name: `Giocatore ${i}`,
                 cellId: 0,
-                color: colors[(i - 1) % colors.length]
+                color: colors[(i - 1) % colors.length],
+
+                pawnImage:
+                    i <= pawnImages.length
+                        ? pawnImages[i - 1]
+                        : "images/oche/oca_base.png"
 
             });
-
         }
-
     }
 
 };
