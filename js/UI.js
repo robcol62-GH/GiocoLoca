@@ -9,23 +9,16 @@ const UI = {
 
     init() {
 
-        this.status =
-            document.getElementById("statusMessage");   
+        messageTimer=null,
+        lastStatus= "",
 
-        this.status =
-            document.getElementById("statusMessage");
-
-        this.btnMenu =
-            document.getElementById("btnMenu");
-
-        this.menuPanel =
-            document.getElementById("menuPanel");
-
-        this.btnFullscreen =
-            document.getElementById("btnFullscreen");
+        this.status = document.getElementById("statusMessage");   
+        this.status = document.getElementById("statusMessage");
+        this.btnMenu = document.getElementById("btnMenu");
+        this.menuPanel = document.getElementById("menuPanel");
+        this.btnFullscreen = document.getElementById("btnFullscreen");
 
         this.events();
-
         Game.log("UI inizializzata");
 
     },
@@ -54,18 +47,36 @@ const UI = {
 
             (event) => {
 
-                if (event.key === "F10") {
+                switch (event.key) {
 
-                    event.preventDefault();
+                    case "F10":
 
-                    this.toggleMenu();
+                        event.preventDefault();
+                        this.toggleMenu();
+                        break;
 
+                    case " ":
+
+                        if (!Game.selectedPlayer)
+                            return;
+
+                        // Nel laghetto lo SPACE non ha effetto
+                        if (Game.selectedPlayer.cellId === 0)
+                            return;
+
+                        event.preventDefault();
+
+                        Game.selectedPlayer.stopTurns =
+                            Game.selectedPlayer.stopTurns ? 0 : 1;
+
+                        Renderer.refresh();
+
+                        break;
                 }
 
             }
 
         );
-
     },
 
     toggleMenu() {
@@ -89,9 +100,25 @@ const UI = {
 
     },
     
-    setStatus(message){
+    setStatus(message) {
 
-       this.status.textContent = message;
+        this.lastStatus = message;
+        this.status.textContent = message;
 
-    }
+    },
+    message(message, duration = 2000) {
+
+        clearTimeout(this.messageTimer);
+
+        const previousStatus = this.lastStatus;
+
+        this.status.textContent = message;
+
+        this.messageTimer = setTimeout(() => {
+
+            this.setStatus(previousStatus);
+
+        }, duration);
+
+    },    
 };

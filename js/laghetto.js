@@ -51,20 +51,16 @@ const Laghetto = {
 
     refresh() {
 
-        const body = document.getElementById("laghettoBody");
+                const body = document.getElementById("laghettoBody");
         body.innerHTML = "";
-
+    
+        let count = 0;
+    
         Game.players.forEach((player, index) => {
-            console.log(
-                "Laghetto:",
-                player.id,
-                "cellId=",
-                player.cellId
-            );
-
             if (player.cellId !== 0) {
                 return;
             }
+            count++;
             const pawn = document.createElement("div");
             pawn.className = "laghettoPawn";
             if (
@@ -92,15 +88,17 @@ const Laghetto = {
                 pawn.style.opacity = "1";
 
             }
-            pawn.style.backgroundColor = player.color;
-            pawn.dataset.playerId = player.id;
+                pawn.style.backgroundColor = player.color;
+                pawn.dataset.playerId = player.id;
 
-            const img = document.createElement("img");
-            img.src = "images/oche/oca_base.png";
+                const number = document.createElement("div");
+                number.className = "laghettoNumber";
+                number.textContent = player.id;
 
-            pawn.appendChild(img);
-            body.appendChild(pawn);            
-            pawn.addEventListener("click", (event) => {
+                pawn.appendChild(number);
+                body.appendChild(pawn);            
+    
+                pawn.addEventListener("click", (event) => {
 
                 event.stopPropagation();
 
@@ -112,5 +110,11 @@ const Laghetto = {
             });
         });
         this.firstShow = false;
+
+        // Se il Laghetto è vuoto lo nasconde
+        if (count === 0) {
+            this.hide();
+        }
     }
 };
+

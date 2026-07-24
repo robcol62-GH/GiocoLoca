@@ -52,14 +52,22 @@
 },
 
 {
-    "id": "PLAYERS",
-    "name": "Selettore Giocatori",
+    "id": "PLAYER_ALL",
+    "name": "Selettore TUTTI Giocatori",
+    "scope":"ALL",
+    "type": "players"
+},
+
+{
+    "id": "PLAYER_SULLA_CELLA",
+    "name": "Selettore Giocatori Presenti nella stessa cella",
+    "scope":"CELL",
     "type": "players"
 },
 
 {
     "id": "IMG3",
-    "name": "Dado Animali",
+    "name": "Dado 3 Animali",
     "type": "images",
 
     "faces": [

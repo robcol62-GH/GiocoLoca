@@ -147,14 +147,9 @@ const Config = {
             // ==============================
             // CLICK SULLA PEDINA
             // ==============================
-            
-            //console.log("Target:", event.target);
-            //console.log("PlayerElement:", playerElement);
-            //console.log("SelectedPlayer =", Game.selectedPlayer);
 
             // Se sto già spostando una pedina,
             // ignoro eventuali click sulle altre pedine.
-            
             let nearestCell = null;
             let nearestDistance = Infinity;
 
@@ -211,6 +206,13 @@ const Config = {
                 // ==============================
 
                 if (Game.selectedPlayer) {
+
+                    // La pedina è ferma: non può essere spostata.
+                    if (Game.selectedPlayer.stopTurns > 0) {
+
+                        UI.message("⛔ OCA ferma. Premi SPACE.");                        
+                        return;
+                    }                    
 
                     Game.selectedPlayer.cellId = nearestCell.id;
 

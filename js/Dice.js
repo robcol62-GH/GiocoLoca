@@ -22,7 +22,7 @@ const Dice = {
 
     },
 
-    roll(id) {
+    roll(id, cell) {
 
         const dice = this.get(id);
 
@@ -37,13 +37,14 @@ const Dice = {
         // Selettore giocatori
         if (dice.type === "players") {
 
-            const index = Math.floor(
-                Math.random() * Game.players.length
-            );
-            console.log("Giocatori:", Game.players.length);
-            console.log("Indice estratto:", index);
-            return Game.players[index];
+            const players =
+                (dice.scope === "CELL")
+                    ? Game.getPlayersOnCell(cell.id)
+                    : Game.players;
 
+            const index = Math.floor(Math.random() * players.length);
+
+            return players[index];
         }
 
         // Dado classico
@@ -55,21 +56,21 @@ const Dice = {
 
     },
 
-    async animate(faceBox, diceId) {
+    async animate(faceBox, diceId, cell) {
         
         faceBox.classList.add("rolling");
 
         const delays = [
-            40, 40, 45, 50,
-            60, 70, 90,
-            120, 160, 220
+            60, 70, 80, 90,
+            110, 140, 180,
+            240, 320, 450
         ];
 
         let face = null;
 
         for (const delay of delays) {
 
-            face = this.roll(diceId);
+            face = this.roll(diceId, cell);
 
             this.showFace(faceBox, face);
 

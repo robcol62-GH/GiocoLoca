@@ -82,9 +82,12 @@ const Game = {
         if (players.length < Config.CROWDING_LIMIT) {
             return;
         }
+        // Casella esente dal controllo di affollamento
+        if (cell.ignoreCrowding) {
+            return;
+        }
 
         const event = Events.get("CROWDING");
-
         Popup.showEvent(event, cell, players);
 
     },
@@ -93,13 +96,12 @@ const Game = {
         this.availablePlayers = [];
 
         const colors = [
-            "red",
             "blue",
+            "red",
+            "green",
+            "gold",
             "orange",
             "purple",
-            "violet",
-            "gold",
-            "green",
             "cyan",
             "magenta",
             "brown",
@@ -112,13 +114,29 @@ const Game = {
             "turquoise",
             "crimson",
             "chocolate",
+            "violet",
             "gray"
         ];
         const pawnImages = [
-            "images/oche/oca_rossa.png",
             "images/oche/oca_blu.png",
+            "images/oche/oca_rossa.png",
+            "images/oche/oca_verde.png",
+            "images/oche/oca_gialla.png",            
+
+            /*
             "images/oche/oca_arancione.png",
-            "images/oche/oca_viola.png"
+            "images/oche/oca_viola.png",
+            "images/oche/oca_gold.png",
+            "images/oche/oca_cyan.png",
+            "images/oche/oca_magenta.png",
+            "images/oche/oca_brown.png",
+            "images/oche/oca_lime.png",
+            "images/oche/oca_pink.png",
+            "images/oche/oca_teal.png",
+            "images/oche/oca_navy.png",
+            "images/oche/oca_olive.png",
+            "images/oche/oca_coral.png"
+            */
         ];
 
         for (let i = 1; i <= Config.MAX_PLAYERS; i++) {
@@ -128,6 +146,7 @@ const Game = {
                 id: i,
                 name: `Giocatore ${i}`,
                 cellId: 0,
+                stopTurns: 0,          // <-- NUOVO
                 color: colors[(i - 1) % colors.length],
 
                 pawnImage:

@@ -140,13 +140,11 @@ const Popup = {
         window.appendChild(faceBox);
 
         faceBox.addEventListener("click", async () => {
-
             await Dice.animate(faceBox, diceId);
-
         });
 
     },
-    buildPopup(data) {
+    buildPopup(data, cell) {
 
         const overlay = this.createOverlay();
 
@@ -256,7 +254,7 @@ const Popup = {
             selectorArea.className = "selectorArea";
             
             console.log("SELECTOR =", data.selector);
-            selectorArea.appendChild(this.createDice(data.selector));
+            selectorArea.appendChild(this.createDice(data.selector, cell));
 
             window.appendChild(selectorArea);
 
@@ -284,7 +282,7 @@ const Popup = {
 
     },
 
-    createDice(diceId) {
+    createDice(diceId, cell) {
 
         const dice = Dice.get(diceId);
 
@@ -304,7 +302,7 @@ const Popup = {
 
         faceBox.addEventListener("click", async () => {
 
-            await Dice.animate(faceBox, diceId);
+            await Dice.animate(faceBox, diceId, cell);
 
         });
 
@@ -332,7 +330,8 @@ const Popup = {
     },
 
     showEvent(event, cell, players) {
-       
-        this.buildPopup(event);            
+
+       console.log(event);
+        this.buildPopup(event, cell);            
     }
 };

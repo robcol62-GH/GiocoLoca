@@ -65,10 +65,10 @@
                 "x": 0.026972353337828724,
                 "y": 0.7612076852698993
             },
-            "image": null,
+            "image": "LoCa.png",
             "video": null,
             "audio": null,
-            "selector": "PLAYERS"
+            "selector": "PLAYER_ALL"
         },
         {
             "id": 6,
@@ -98,7 +98,7 @@
                 "x": 0.08185612122931059,
                 "y": 0.94375975458802
             },
-            "image": null,
+            "image": "PausaCaffe.png",
             "video": null,
             "audio": null,
             "selector": "IMG3"
@@ -120,7 +120,7 @@
                 "x": 0.1739126030671988,
                 "y": 0.9449078808101465
             },
-            "image": null,
+            "image": "SaltaPonte.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -175,7 +175,7 @@
                 "x": 0.2542999534045096,
                 "y": 0.699208869275066
             },
-            "image": null,
+            "image": "Tifosi.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -208,7 +208,7 @@
                 "x": 0.2542999534045096,
                 "y": 0.4351398381859606
             },
-            "image": null,
+            "image": "Corbetta.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -252,7 +252,7 @@
                 "x": 0.40535037782865013,
                 "y": 0.5189530524011984
             },
-            "image": null,
+            "image": "Gita.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -285,7 +285,7 @@
                 "x": 0.40535037782865013,
                 "y": 0.7761333261575445
             },
-            "image": null,
+            "image": "Insegnante.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -318,7 +318,7 @@
                 "x": 0.459482182,
                 "y": 0.9380191234773870
             },
-            "image": null,
+            "image": "Prigione.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -340,7 +340,7 @@
                 "x": 0.5136139867506736,
                 "y": 0.8668352977055415
             },
-            "image": null,
+            "image": "MvsF.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -362,7 +362,7 @@
                 "x": 0.5136139867506736,
                 "y": 0.6728019661661554
             },
-            "image": null,
+            "image": "InDue.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -373,7 +373,7 @@
                 "x": 0.5136139867506736,
                 "y": 0.6108031501713219
             },
-            "image": null,
+            "image": "TiraAncora.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -417,7 +417,7 @@
                 "x": 0.6166913150057738,
                 "y": 0.4328435857417075
             },
-            "image": null,
+            "image": "Scambia.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -439,10 +439,11 @@
                 "x": 0.6633678410080833,
                 "y": 0.5086199164020595
             },
-            "image": null,
+            "image": "Dispari.png",
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true
         },
         {
             "id": 40,
@@ -516,7 +517,7 @@
                 "x": 0.6633678410080833,
                 "y": 0.9299822399225015
             },
-            "image": null,
+            "image": "SaltaPonte.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -560,7 +561,7 @@
                 "x": 0.7424586211786633,
                 "y": 0.7749851999354179
             },
-            "image": null,
+            "image": "Libera.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -604,7 +605,7 @@
                 "x": 0.7424586211786633,
                 "y": 0.4385842168523402
             },
-            "image": null,
+            "image": "OcaStop.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -637,7 +638,7 @@
                 "x": 0.8909159052693422,
                 "y": 0.4271029546310747
             },
-            "image": null,
+            "image": "TiraAncora.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -670,7 +671,7 @@
                 "x": 0.8909159052693422,
                 "y": 0.6773944710546616
             },
-            "image": null,
+            "image": "Incidente.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -681,7 +682,7 @@
                 "x": 0.8909159052693422,
                 "y": 0.7658001901584055
             },
-            "image": null,
+            "image": "LoCa.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -692,7 +693,7 @@
                 "x": 0.8909159052693422,
                 "y": 0.855354035484276
             },
-            "image": null,
+            "image": "TornaScuola.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -725,7 +726,7 @@
                 "x": 0.8397013836834748,
                 "y": 0.6819869759431677
             },
-            "image": null,
+            "image": "PausaCaffe.png",
             "video": null,
             "audio": null,
             "selector": null
@@ -780,7 +781,7 @@
                 "x": 0.3048661899070116,
                 "y": 0.9460560070322731
             },
-            "image": null,
+            "image": "OcaStop.png",
             "video": null,
             "audio": null,
             "selector": null

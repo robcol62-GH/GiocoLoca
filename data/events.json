@@ -3,6 +3,6 @@
         "id": "CROWDING",
         "txt": "Sulla casella sono presenti più concorrenti.",
         "image": "",
-        "selector": "PLAYERS"
+        "selector": "PLAYER_SULLA_CELLA"
     }
 ]

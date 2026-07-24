@@ -34,17 +34,16 @@ const Renderer = {
 
     },
 
-    drawCircle(parent, x, y, radius, color) {
+    drawCircle(parent, x, y, radius, color, strokeWidth = 4) {
 
         const circle = this.create("circle");
 
         circle.setAttribute("cx", x);
         circle.setAttribute("cy", y);
-
         circle.setAttribute("r", radius);
         circle.setAttribute("fill", "none");
         circle.setAttribute("stroke", color);
-        circle.setAttribute("stroke-width", 4);
+        circle.setAttribute("stroke-width", strokeWidth);
 
         parent.appendChild(circle);
 
@@ -247,18 +246,27 @@ const Renderer = {
 
         const ringRadius = Math.round(Config.OCA_SIZE / 2) + 3;
 
-        if (selected) {
+            console.log(
+                "PLAYER",
+                player.id,
+                "selected=", selected,
+                "stopTurns=", player.stopTurns
+            );
 
+        if (selected) {
+            const color =
+                player.stopTurns > 0 ? "crimson" : "black"
+            const width =
+                player.stopTurns > 0 ? 7 : 4;
             this.drawCircle(
                 group,
                 baseX + offsetX,
                 baseY + offsetY,
                 ringRadius,
-                "black"
+                player.stopTurns > 0 ? "red" : "black",
+                player.stopTurns > 0 ? 6 : 4
             );
-
         }
-
         const ocaSize = selected
             ? Config.OCA_SIZE + 6
             : Config.OCA_SIZE;
