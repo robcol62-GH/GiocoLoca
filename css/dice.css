@@ -159,3 +159,303 @@
     }
 
 }
+
+/* Grandezza Selettore (3 . 
+   NB: Ricordati centraggio in PopUp.js ( Riga 305 )*/
+.selectorBallContent{
+
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:46px;
+    font-weight:bold;
+    color:#222;
+    overflow:hidden;
+    border-radius:50%;
+}
+
+.selectorBallContent .selectorImage{
+
+    width:88%;
+    height:88%;
+    object-fit:contain;
+}
+
+.selectorBallContent .playerToken{
+
+    width:100%;
+    height:100%;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 32% 28%,
+            #ffffff 0%,
+            rgba(255,255,255,.55) 12%,
+            var(--selector-color) 35%,
+            var(--selector-color) 70%,
+            #222 100%
+        );
+
+    border:2px solid rgba(0,0,0,.45);
+
+    box-shadow:
+        0 8px 14px rgba(0,0,0,.55),
+        inset 5px 5px 8px rgba(255,255,255,.45),
+        inset -7px -8px 12px rgba(0,0,0,.45);
+
+}
+
+.ballSelectorImage{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:88%;
+    height:88%;
+
+    transform:translate(-50%,-50%);
+
+    object-fit:contain;
+
+    display:block;
+
+}
+
+.selectorColor-ROSSO {
+    --selector-color: #d62828;
+}
+
+.selectorColor-VERDE {
+    --selector-color: #2e9d45;
+}
+
+.selectorColor-GIALLO {
+    --selector-color: #f2c230;
+}
+/*==================================================
+  SELETTORI TIFOSI
+==================================================*/
+
+/*----------------------------------------
+  STRISCE VERTICALI
+----------------------------------------*/
+
+.selectorStyle-VERTICALE{
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            var(--selector-color-1) 0px,
+            var(--selector-color-1) 18px,
+            var(--selector-color-2) 18px,
+            var(--selector-color-2) 36px
+        );
+
+    border:2px solid rgba(0,0,0,.45);
+
+    box-shadow:
+        0 8px 14px rgba(0,0,0,.55),
+        inset 5px 5px 8px rgba(255,255,255,.45),
+        inset -7px -8px 12px rgba(0,0,0,.45);
+
+}
+
+
+/*----------------------------------------
+  STRISCE ORIZZONTALI
+----------------------------------------*/
+
+.selectorStyle-ORIZZONTALE{
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            var(--selector-color-1) 0px,
+            var(--selector-color-1) 12px,
+            var(--selector-color-2) 12px,
+            var(--selector-color-2) 24px
+        );
+
+    border:2px solid rgba(0,0,0,.45);
+
+    box-shadow:
+        0 8px 14px rgba(0,0,0,.55),
+        inset 5px 5px 8px rgba(255,255,255,.45),
+        inset -7px -8px 12px rgba(0,0,0,.45);
+
+}
+
+
+/*----------------------------------------
+  TINTA UNITA + BORDO
+----------------------------------------*/
+
+.selectorStyle-BORDO{
+
+    background:
+        var(--selector-color-1);
+    border:
+        8px solid var(--selector-color-2);
+    box-shadow:
+        0 8px 14px rgba(0,0,0,.55),
+        inset 5px 5px 8px rgba(255,255,255,.45),
+        inset -7px -8px 12px rgba(0,0,0,.45);
+
+}
+/*==================================================
+  TESTO SULLA PALLINA TIFOSI
+==================================================*/
+
+.ballSelectorText{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:26px;
+    font-weight:bold;
+
+    color:#ffffff;
+
+    text-shadow:
+        1px 1px 2px #000,
+        -1px -1px 2px rgba(255,255,255,.4);
+
+    pointer-events:none;
+
+    z-index:5;
+
+}
+.selectorStyle-IMMAGINE{
+
+    background:
+        radial-gradient(
+            circle at 32% 28%,
+            #ffffff 0%,
+            #eeeeee 12%,
+            var(--selector-color-1) 35%,
+            var(--selector-color-1) 70%,
+            #222222 100%
+        );
+
+    border:
+        5px solid var(--selector-color-2);
+
+    box-shadow:
+        0 8px 14px rgba(0,0,0,.55),
+        inset 5px 5px 8px rgba(255,255,255,.45),
+        inset -7px -8px 12px rgba(0,0,0,.45);
+
+}
+.selectorStyle-SOLID{
+
+    background:
+        radial-gradient(
+            circle at 32% 28%,
+            #ffffff 0%,
+            #eeeeee 12%,
+            var(--selector-color-1) 35%,
+            var(--selector-color-1) 70%,
+            #222222 100%
+        );
+
+    border:
+        3px solid var(--selector-color-2);
+
+    box-shadow:
+        0 8px 14px rgba(0,0,0,.55),
+        inset 5px 5px 8px rgba(255,255,255,.45),
+        inset -7px -8px 12px rgba(0,0,0,.45);
+
+}
+.selectorBallFinal {
+
+animation:
+    selectorGlow 2.1s ease-out forwards;
+
+}
+@keyframes selectorGlow {
+
+    0% {
+        box-shadow:
+            0 0 0 0 rgba(255,255,255,1),
+            0 0 0 0 rgba(255,255,255,.8),
+            0 8px 14px rgba(0,0,0,.55),
+            inset 5px 5px 8px rgba(255,255,255,.45),
+            inset -7px -8px 12px rgba(0,0,0,.45);
+    }
+
+    /* PULSAZIONE 1 */
+    15% {
+        box-shadow:
+            0 0 8px 8px rgba(255,255,255,1),
+            0 0 25px 18px rgba(255,255,255,.75),
+            0 0 55px 30px rgba(255,255,255,.35),
+            0 8px 14px rgba(0,0,0,.55),
+            inset 5px 5px 8px rgba(255,255,255,.45),
+            inset -7px -8px 12px rgba(0,0,0,.45);
+    }
+
+    30% {
+        box-shadow:
+            0 0 5px 3px rgba(255,255,255,.5),
+            0 0 15px 8px rgba(255,255,255,.2),
+            0 8px 14px rgba(0,0,0,.55),
+            inset 5px 5px 8px rgba(255,255,255,.45),
+            inset -7px -8px 12px rgba(0,0,0,.45);
+    }
+
+    /* PULSAZIONE 2 */
+    45% {
+        box-shadow:
+            0 0 8px 8px rgba(255,255,255,1),
+            0 0 25px 18px rgba(255,255,255,.75),
+            0 0 55px 30px rgba(255,255,255,.35),
+            0 8px 14px rgba(0,0,0,.55),
+            inset 5px 5px 8px rgba(255,255,255,.45),
+            inset -7px -8px 12px rgba(0,0,0,.45);
+    }
+
+    60% {
+        box-shadow:
+            0 0 5px 3px rgba(255,255,255,.5),
+            0 0 15px 8px rgba(255,255,255,.2),
+            0 8px 14px rgba(0,0,0,.55),
+            inset 5px 5px 8px rgba(255,255,255,.45),
+            inset -7px -8px 12px rgba(0,0,0,.45);
+    }
+
+    /* PULSAZIONE 3 */
+    75% {
+        box-shadow:
+            0 0 8px 8px rgba(255,255,255,1),
+            0 0 25px 18px rgba(255,255,255,.75),
+            0 0 55px 30px rgba(255,255,255,.35),
+            0 8px 14px rgba(0,0,0,.55),
+            inset 5px 5px 8px rgba(255,255,255,.45),
+            inset -7px -8px 12px rgba(0,0,0,.45);
+    }
+
+    100% {
+        box-shadow:
+            0 0 10px 3px rgba(255,255,255,.65),
+            0 0 25px 10px rgba(255,255,255,.25),
+            0 8px 14px rgba(0,0,0,.55),
+            inset 5px 5px 8px rgba(255,255,255,.45),
+            inset -7px -8px 12px rgba(0,0,0,.45);
+    }
+
+}

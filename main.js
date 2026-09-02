@@ -5,7 +5,7 @@ function createWindow() {
 
     const win = new BrowserWindow({
 
-        title: "Gioco dell'LoCa - Lo.Ca.4Students",
+        title: "Gioco dell'LoCa - Lo.Ca. 4 Students",
 
         width: 1400,
         height: 900,
@@ -22,7 +22,7 @@ function createWindow() {
     });
 
     win.loadFile("index.html");
-    win.webContents.openDevTools({ mode: "detach" });
+    //win.webContents.openDevTools({ mode: "detach" });
     win.webContents.on("did-finish-load", () => {
      console.log("Pagina caricata");
     });

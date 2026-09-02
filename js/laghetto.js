@@ -51,7 +51,9 @@ const Laghetto = {
 
     refresh() {
 
-                const body = document.getElementById("laghettoBody");
+        return;
+            
+        const body = document.getElementById("laghettoBody");
         body.innerHTML = "";
     
         let count = 0;

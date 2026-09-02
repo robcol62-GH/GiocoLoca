@@ -13,22 +13,10 @@ const Popup = {
 
         document.body.appendChild(overlay);
 
-        // Click sullo sfondo = chiude il popup
-        overlay.addEventListener("click", (event) => {
-
-            if (event.target === overlay) {
-
-                Popup.close();
-
-            }
-
-        });
-
         return overlay;
 
     },
-
-
+    
     showImage(imageName) {
 
         const overlay = this.createOverlay();
@@ -157,8 +145,37 @@ const Popup = {
         //==============================
 
         const window = document.createElement("div");
-
         window.id = "cellWindow";
+
+        //==============================
+        // AREA CONTENUTO
+        //==============================
+
+        const contentArea = document.createElement("div");
+
+        contentArea.className = "contentArea";
+
+        window.appendChild(contentArea);
+
+        //==============================
+        // COLONNA SINISTRA
+        //==============================
+
+        const leftPanel = document.createElement("div");
+
+        leftPanel.className = "leftPanel";
+
+        contentArea.appendChild(leftPanel);
+
+        //==============================
+        // COLONNA DESTRA
+        //==============================
+
+        const rightPanel = document.createElement("div");
+
+        rightPanel.className = "rightPanel";
+
+        contentArea.appendChild(rightPanel);
 
         overlay.appendChild(window);
 
@@ -170,7 +187,8 @@ const Popup = {
 
         mediaArea.className = "mediaArea";
 
-        window.appendChild(mediaArea);
+        //window.appendChild(mediaArea);
+        leftPanel.appendChild(mediaArea);
 
         //==============================
         // Immagine
@@ -179,13 +197,247 @@ const Popup = {
         if (data.image) {
 
             const img = document.createElement("img");
-
             img.src = "images/card/" + data.image;
-
             img.alt = "";
-
             mediaArea.appendChild(img);
 
+
+            if (data.selector) {
+
+                const selectorButton = document.createElement("div");
+
+                selectorButton.className = "selectorButton";
+
+                const icon = document.createElement("img");
+                icon.src = "images/selector.png";
+                icon.alt = "Selector";
+                selectorButton.appendChild(icon);
+
+                selectorButton.onclick = async () => {
+
+                    const oldBall = document.querySelector(".selectorBall");
+                    if (oldBall) {
+                        oldBall.remove();
+                    }
+
+                    const rect = selectorButton.getBoundingClientRect();
+                    //========================================
+                    // PARTENZA
+                    //========================================
+                    const startX = rect.left + rect.width / 2;
+                    const startY = rect.top + rect.height / 2;
+
+                    //========================================
+                    // ARRIVO: CENTRO DEL TABELLONE
+                    //========================================
+
+                    const board = document.getElementById("board");
+
+                    const boardRect = board.getBoundingClientRect();
+
+                    const endX =
+                        boardRect.left + boardRect.width / 2;
+
+                    const endY =
+                        boardRect.top + boardRect.height / 2;
+
+                    //========================================
+                    // PALLINA
+                    //========================================
+
+                    const ball = document.createElement("div");
+                    ball.className = "selectorBall";
+                    document.body.appendChild(ball);
+
+                    const resultPromise =
+                        Dice.animateBall(ball, data.selector, cell);                    
+
+                    //========================================
+                    // TRAIETTORIA E RIMBALZI
+                    //========================================
+
+                    const duration = 1900;
+                    const startTime = performance.now();
+
+                    //========================================
+                    // PUNTI DI ATTERRAGGIO
+                    //========================================
+
+                    const points = [
+
+                        // PARTENZA
+                        {
+                            x: startX,
+                            y: startY
+                        },
+
+                        // 1° atterraggio
+                        {
+                            x: globalThis.innerWidth * 0.34,
+                            y: globalThis.innerHeight * 0.55
+                        },
+
+                        // 2° atterraggio
+                        {
+                            x: globalThis.innerWidth * 0.50,
+                            y: globalThis.innerHeight * 0.72
+                        },
+
+                        // 3° atterraggio
+                        {
+                            x: globalThis.innerWidth * 0.67,
+                            y: globalThis.innerHeight * 0.43
+                        },
+
+                        // 4° atterraggio
+                        {
+                            x: globalThis.innerWidth * 0.80,
+                            y: globalThis.innerHeight * 0.57
+                        },
+
+                        // ARRIVO
+                        {
+                            x: endX,
+                            y: endY
+                        }
+
+                    ];
+
+                    // Altezza dei singoli rimbalzi
+                    const bounceHeights = [
+                        180,
+                        110,
+                        210,
+                        95,
+                        45
+                    ];
+
+                    function animate(time) {
+
+                        const progress =
+                            Math.min(
+                                (time - startTime) / duration,
+                                1
+                            );
+
+                        //========================================
+                        // FINE
+                        //========================================
+
+                        if (progress >= 1) {
+
+                            ball.style.left =
+                                `${endX - 60}px`;
+
+                            ball.style.top =
+                                `${endY - 60}px`;
+
+                            ball.classList.add("selectorBallFinal");
+
+                            return;
+                        }
+
+                        //========================================
+                        // DETERMINA IL RIMBALZO ATTUALE
+                        //========================================
+
+                        const segments = points.length - 1;
+
+                        let scaledProgress =
+                            progress * segments;
+
+                        // Protezione contro eventuali valori
+                        // leggermente superiori al limite
+                        scaledProgress =
+                            Math.max(
+                                0,
+                                Math.min(scaledProgress, segments - 0.000001)
+                            );
+
+                        const segment =
+                            Math.floor(scaledProgress);
+
+                        const localProgress =
+                            scaledProgress - segment;
+
+                        const p1 = points[segment];
+                        const p2 = points[segment + 1];
+                        
+                        //========================================
+                        // MOVIMENTO ORIZZONTALE
+                        //========================================
+
+                        const x =
+                            p1.x +
+                            (p2.x - p1.x) *
+                            localProgress;
+
+                        //========================================
+                        // MOVIMENTO VERTICALE
+                        //========================================
+
+                        const baseY =
+                            p1.y +
+                            (p2.y - p1.y) *
+                            localProgress;
+
+                        //========================================
+                        // RIMBALZO
+                        //========================================
+
+                        const bounce =
+                            Math.sin(localProgress * Math.PI) *
+                            bounceHeights[segment];
+
+                        const y =
+                            baseY - bounce;
+
+                        //========================================
+                        // POSIZIONE PALLINA
+                        //========================================
+
+                        ball.style.left =
+                            `${x - 60}px`;
+
+                        ball.style.top =
+                            `${y - 60}px`;
+
+                        requestAnimationFrame(animate);
+                    }
+
+
+                    requestAnimationFrame(animate);                
+                };
+                mediaArea.appendChild(selectorButton);
+            }            
+        }
+        //==============================
+        // CHIODO DELLA CARD
+        //==============================
+
+        if (data.image) {
+
+            const pin = document.createElement("div");
+
+            pin.className = "cardPin";
+
+            pin.title = "Chiudi";
+
+            pin.addEventListener("click", (event) => {
+
+                event.stopPropagation();
+
+                const ball = document.querySelector(".selectorBall");
+
+                if (ball) {
+                    ball.remove();
+                }
+
+                Popup.close();
+
+            });
+
+            mediaArea.appendChild(pin);
         }
 
         //==============================
@@ -239,14 +491,15 @@ const Popup = {
 
             textArea.textContent = data.txt;
 
-            window.appendChild(textArea);
+            //window.appendChild(textArea);
+            rightPanel.appendChild(textArea);
 
         }
 
         //==============================
         // AREA SELETTORE
         //==============================
-
+        /*
         if (data.selector) {
 
             const selectorArea = document.createElement("div");
@@ -256,29 +509,11 @@ const Popup = {
             console.log("SELECTOR =", data.selector);
             selectorArea.appendChild(this.createDice(data.selector, cell));
 
-            window.appendChild(selectorArea);
+            //window.appendChild(selectorArea);
+            rightPanel.appendChild(selectorArea);
 
         }
-
-        //==============================
-        // FOOTER
-        //==============================
-
-        const footerArea = document.createElement("div");
-
-        footerArea.className = "footerArea";
-
-        const closeButton = document.createElement("button");
-
-        closeButton.className = "popupButton";
-
-        closeButton.textContent = "Chiudi";
-
-        closeButton.onclick = () => overlay.remove();
-
-        footerArea.appendChild(closeButton);
-
-        window.appendChild(footerArea);
+        */
 
     },
 
@@ -333,5 +568,19 @@ const Popup = {
 
        console.log(event);
         this.buildPopup(event, cell);            
+    },
+    openSelector(parent, diceId, cell){
+
+        const selector = this.createDice(diceId, cell);
+
+        selector.style.position = "absolute";
+
+        selector.style.top = "55px";
+
+        selector.style.right = "-20px";
+
+        parent.appendChild(selector);
+
     }
+
 };

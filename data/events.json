@@ -1,8 +1,8 @@
 [
     {
         "id": "CROWDING",
-        "txt": "Sulla casella sono presenti più concorrenti.",
-        "image": "",
+        "txt": null,
+        "image": "Folla.png",
         "selector": "PLAYER_SULLA_CELLA"
     }
 ]

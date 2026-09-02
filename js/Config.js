@@ -8,7 +8,7 @@
 const Config = {
 
     // Numero Massimo di Giocatori
-    MAX_PLAYERS:20,
+    MAX_PLAYERS:15,
 
     // Numero minimo di pedine sulla stessa casella per attivare l'evento di affollamento.
     CROWDING_LIMIT:3,
@@ -258,17 +258,13 @@ const Config = {
         }
 
         const cell = {
-
             id: Game.cells.length,
-
             position: relative,
-
             image: null,
-
+            txt: null,
             video: null,
-
-            audio: null
-
+            audio: null,
+            selector: null
         };
 
         Game.cells.push(cell);

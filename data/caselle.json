@@ -1,26 +1,14 @@
 {
-    "version": "1.0 - Gioco a Gruppi",
+    "version": "1.0",
     "cells": [
-        {
-            "id": 0,
-            "position": {
-                "x": 0.0182,
-                "y": 0.3549
-            },
-            "image": null,  
-            "txt": null,
-            "video": null,
-            "audio": null,
-            "selector": null
-        },
         {
             "id": 1,
             "position": {
-                "x": 0.026972353337828724,
-                "y": 0.4361098671443499
+                "x": 0.06765588670471359,
+                "y": 0.377890292822909
             },
-            "image": "Campanella.png",
-            "txt": null,     
+            "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -28,55 +16,59 @@
         {
             "id": 2,
             "position": {
-                "x": 0.026972353337828724,
-                "y": 0.5185102254067772
+                "x": 0.06495032762629466,
+                "y": 0.45673763127450834
             },
             "image": null,
-            "video": "P01.mp4",
+            "txt": null,
+            "video": null,
             "audio": null,
             "selector": null
         },
         {
             "id": 3,
             "position": {
-                "x": 0.026972353337828724,
-                "y": 0.6021047917599641
+                "x": 0.06062143310082435,
+                "y": 0.5211616761069127
             },
             "image": null,
+            "txt": null,
             "video": null,
-            "audio": "Audio_ES.mp3",
+            "audio": null,
             "selector": null
-
         },
         {
             "id": 4,
             "position": {
-                "x": 0.026972353337828724,
-                "y": 0.701505121719319
+                "x": 0.058998097653772986,
+                "y": 0.5980859087426194
             },
             "image": "LoCa.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": "NUMERI"
+            "selector": null
         },
         {
             "id": 5,
             "position": {
-                "x": 0.026972353337828724,
-                "y": 0.7612076852698993
+                "x": 0.052504755865567534,
+                "y": 0.666356165206809
             },
-            "image": "LoCa.png",
+            "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": "PLAYER_ALL"
+            "selector": null
         },
         {
             "id": 6,
             "position": {
-                "x": 0.026972353337828724,
-                "y": 0.8496134043736433
+                "x": 0.04979919678714859,
+                "y": 0.7336648687630524
             },
             "image": "Elle.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -84,32 +76,36 @@
         {
             "id": 7,
             "position": {
-                "x": 0.026972353337828724,
-                "y": 0.94375975458802
+                "x": 0.05466920312830269,
+                "y": 0.8317432653735783
             },
-            "image": null,
+            "image": "Banana.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": "NUMERI"
+            "selector": null,
+            "ignoreCrowding": true
         },
         {
             "id": 8,
             "position": {
-                "x": 0.08185612122931059,
-                "y": 0.94375975458802
+                "x": 0.13908264637497358,
+                "y": 0.8471281119007197
             },
             "image": "PausaCaffe.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": "IMG3"
+            "selector": null
         },
         {
             "id": 9,
             "position": {
-                "x": 0.1291809323149855,
-                "y": 0.9495003856986527
+                "x": 0.1910293806806172,
+                "y": 0.8057813368590273
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -117,10 +113,11 @@
         {
             "id": 10,
             "position": {
-                "x": 0.1739126030671988,
-                "y": 0.9449078808101465
+                "x": 0.2575861340097231,
+                "y": 0.7798194083444764
             },
-            "image": "SaltaPonte.png",
+            "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -128,10 +125,11 @@
         {
             "id": 11,
             "position": {
-                "x": 0.2159683826621910,
-                "y": 0.9586853954756651
+                "x": 0.23269499048826886,
+                "y": 0.7077029402485013
             },
-            "image": null,
+            "image": "O.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -139,10 +137,11 @@
         {
             "id": 12,
             "position": {
-                "x": 0.2542999534045096,
-                "y": 0.9380191234773873
+                "x": 0.21646163601775523,
+                "y": 0.63462491924458
             },
-            "image": null,
+            "image": "Campanella.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -150,21 +149,23 @@
         {
             "id": 13,
             "position": {
-                "x": 0.2542999534045096,
-                "y": 0.8599465403727823
+                "x": 0.21429718875502007,
+                "y": 0.5644315569644976
             },
-            "image": null,
+            "image": "Tifosi.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "TIFOSI"
         },
         {
             "id": 14,
             "position": {
-                "x": 0.2542999534045096,
-                "y": 0.7887627146009364
+                "x": 0.21646163601775523,
+                "y": 0.496161300500308
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -172,21 +173,24 @@
         {
             "id": 15,
             "position": {
-                "x": 0.2542999534045096,
-                "y": 0.699208869275066
+                "x": 0.23215387867258508,
+                "y": 0.43077570275995736
             },
-            "image": "Tifosi.png",
+            "image": "Riunione.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true
         },
         {
             "id": 16,
             "position": {
-                "x": 0.2542999534045096,
-                "y": 0.5947293830615503
+                "x": 0.25542168674698795,
+                "y": 0.37981339863880165
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -194,10 +198,11 @@
         {
             "id": 17,
             "position": {
-                "x": 0.2542999534045096,
-                "y": 0.5281380621782107
+                "x": 0.28951173113506656,
+                "y": 0.34808215267657266
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -205,10 +210,11 @@
         {
             "id": 18,
             "position": {
-                "x": 0.2542999534045096,
-                "y": 0.4351398381859606
+                "x": 0.3268484464172479,
+                "y": 0.34231283522889466
             },
-            "image": "Corbetta.png",
+            "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -216,10 +222,11 @@
         {
             "id": 19,
             "position": {
-                "x": 0.3048661899070116,
-                "y": 0.42480670218682165
+                "x": 0.36418516169942927,
+                "y": 0.37500563409907
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -227,10 +234,11 @@
         {
             "id": 20,
             "position": {
-                "x": 0.35413585624278276,
-                "y": 0.42939920707532786
+                "x": 0.38420629887972946,
+                "y": 0.4365450202076353
             },
-            "image": null,
+            "image": "Gita.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -238,10 +246,11 @@
         {
             "id": 21,
             "position": {
-                "x": 0.40535037782865013,
-                "y": 0.43743609063021366
+                "x": 0.39178186429930245,
+                "y": 0.5067383824877176
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -249,21 +258,23 @@
         {
             "id": 22,
             "position": {
-                "x": 0.40535037782865013,
-                "y": 0.5189530524011984
+                "x": 0.39394631156203763,
+                "y": 0.5692393215042293
             },
-            "image": "Gita.png",
+            "image": "Insegnante.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "AvIn"
         },
         {
             "id": 23,
             "position": {
-                "x": 0.40535037782865013,
-                "y": 0.5970256355058035
+                "x": 0.38907630522088354,
+                "y": 0.6423173425081506
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -271,21 +282,23 @@
         {
             "id": 24,
             "position": {
-                "x": 0.40535037782865013,
-                "y": 0.686579480831674
+                "x": 0.37771295709152397,
+                "y": 0.7144338106041257
             },
-            "image": null,
+            "image": "OcaStop.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "PLAYER_ALL"
         },
         {
             "id": 25,
             "position": {
-                "x": 0.40535037782865013,
-                "y": 0.7761333261575445
+                "x": 0.3560684844641725,
+                "y": 0.7625114560014423
             },
-            "image": "Insegnante.png",
+            "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -293,10 +306,11 @@
         {
             "id": 26,
             "position": {
-                "x": 0.40535037782865013,
-                "y": 0.8507615305957699
+                "x": 0.3311773409427182,
+                "y": 0.77885785543653
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -304,10 +318,11 @@
         {
             "id": 27,
             "position": {
-                "x": 0.40535037782865013,
-                "y": 0.9345747448110077
+                "x": 0.2922172902134855,
+                "y": 0.7865502787001006
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -315,10 +330,11 @@
         {
             "id": 28,
             "position": {
-                "x": 0.459482182,
-                "y": 0.9380191234773870
+                "x": 0.38745296977383215,
+                "y": 0.799050466503403
             },
-            "image": "Prigione.png",
+            "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -326,21 +342,25 @@
         {
             "id": 29,
             "position": {
-                "x": 0.5136139867506618,
-                "y": 0.9345747448110077
+                "x": 0.42100190234622703,
+                "y": 0.8432819002689343
             },
-            "image": null,
+            "image": "Prigione.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "PRIGIONE",
+            "ignoreCrowding": true
+
         },
         {
             "id": 30,
             "position": {
-                "x": 0.5136139867506736,
-                "y": 0.8668352977055415
+                "x": 0.4653730712322976,
+                "y": 0.7894349374239397
             },
-            "image": "MvsF.png",
+            "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -348,10 +368,11 @@
         {
             "id": 31,
             "position": {
-                "x": 0.5136139867506736,
-                "y": 0.7876145883788099
+                "x": 0.5037920101458465,
+                "y": 0.7163569164200183
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -359,10 +380,11 @@
         {
             "id": 32,
             "position": {
-                "x": 0.5136139867506736,
-                "y": 0.6728019661661554
+                "x": 0.4918875502008032,
+                "y": 0.6500097657717213
             },
-            "image": "InDue.png",
+            "image": "Ci.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -370,21 +392,23 @@
         {
             "id": 33,
             "position": {
-                "x": 0.5136139867506736,
-                "y": 0.6108031501713219
+                "x": 0.4794419784400761,
+                "y": 0.565393109872444
             },
-            "image": "TiraAncora.png",
+            "image": "MvsF.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "MVSF"
         },
         {
             "id": 34,
             "position": {
-                "x": 0.5136139867506736,
-                "y": 0.5246936835118311
+                "x": 0.48647643204396535,
+                "y": 0.507699935395664
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -392,10 +416,11 @@
         {
             "id": 35,
             "position": {
-                "x": 0.5136139867506736,
-                "y": 0.43743609063021366
+                "x": 0.49567533291058974,
+                "y": 0.43269880857585
             },
-            "image": null,
+            "image": "TiraAncora.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -403,10 +428,11 @@
         {
             "id": 36,
             "position": {
-                "x": 0.5589939425862523,
-                "y": 0.43169545951958094
+                "x": 0.5254364827731981,
+                "y": 0.37885184573085534
             },
-            "image": null,
+            "image": "Scambia.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -414,10 +440,11 @@
         {
             "id": 37,
             "position": {
-                "x": 0.6166913150057738,
-                "y": 0.4328435857417075
+                "x": 0.5573620798985416,
+                "y": 0.351928364308358
             },
-            "image": "Scambia.png",
+            "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -425,10 +452,11 @@
         {
             "id": 38,
             "position": {
-                "x": 0.6633678410080833,
-                "y": 0.43169545951958094
+                "x": 0.589287677023885,
+                "y": 0.35385147012425067
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -436,22 +464,23 @@
         {
             "id": 39,
             "position": {
-                "x": 0.6633678410080833,
-                "y": 0.5086199164020595
+                "x": 0.6195899387021772,
+                "y": 0.395198245165943
             },
             "image": "Dispari.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": null,
-            "ignoreCrowding": true
+            "selector": null
         },
         {
             "id": 40,
             "position": {
-                "x": 0.6633678410080843,
-                "y": 0.585544373284538
+                "x": 0.6206721623335447,
+                "y": 0.478853348157274
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -459,10 +488,11 @@
         {
             "id": 41,
             "position": {
-                "x": 0.6633678410080843,
-                "y": 0.6372100532802325
+                "x": 0.6201310505178609,
+                "y": 0.51923857029102
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -470,10 +500,11 @@
         {
             "id": 42,
             "position": {
-                "x": 0.6633678410080843,
-                "y": 0.6957644906086863
+                "x": 0.6163432678080744,
+                "y": 0.5528929220691416
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -481,10 +512,11 @@
         {
             "id": 43,
             "position": {
-                "x": 0.6633678410080843,
-                "y": 0.7302082772724826
+                "x": 0.6103910378355527,
+                "y": 0.5932781442028877
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -492,10 +524,11 @@
         {
             "id": 44,
             "position": {
-                "x": 0.6633678410080843,
-                "y": 0.7853183359345568
+                "x": 0.6082265905728176,
+                "y": 0.640394236692258
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -503,10 +536,11 @@
         {
             "id": 45,
             "position": {
-                "x": 0.6633678410080833,
-                "y": 0.8633909190391619
+                "x": 0.6028154724159797,
+                "y": 0.6817410117339503
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -514,21 +548,23 @@
         {
             "id": 46,
             "position": {
-                "x": 0.6633678410080833,
-                "y": 0.9299822399225015
+                "x": 0.6066032551257662,
+                "y": 0.7461650565663547
             },
-            "image": "SaltaPonte.png",
+            "image": "VersoDove.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "DIREZIONI"
         },
         {
             "id": 47,
             "position": {
-                "x": 0.7061546565102004,
-                "y": 0.9529447643650324
+                "x": 0.5757598816317904,
+                "y": 0.7778963025285837
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -536,10 +572,11 @@
         {
             "id": 48,
             "position": {
-                "x": 0.7424586211786633,
-                "y": 0.9345747448110077
+                "x": 0.5405876136123441,
+                "y": 0.764434561817335
             },
-            "image": null,
+            "image": "Libera.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -547,10 +584,11 @@
         {
             "id": 49,
             "position": {
-                "x": 0.7424586211786633,
-                "y": 0.8599465403727823
+                "x": 0.6471866413020503,
+                "y": 0.7913580432398323
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -558,21 +596,23 @@
         {
             "id": 50,
             "position": {
-                "x": 0.7424586211786633,
-                "y": 0.7749851999354179
+                "x": 0.6953455928979074,
+                "y": 0.8403972415450953
             },
-            "image": "Libera.png",
+            "image": "Corbetta.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "AvIn"
         },
         {
             "id": 51,
             "position": {
-                "x": 0.7424586211786633,
-                "y": 0.6934682381644331
+                "x": 0.7110378355527373,
+                "y": 0.7942427019636713
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -580,10 +620,11 @@
         {
             "id": 52,
             "position": {
-                "x": 0.7424586211786633,
-                "y": 0.5947293830615503
+                "x": 0.7186134009723103,
+                "y": 0.72116468095975
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -591,32 +632,35 @@
         {
             "id": 53,
             "position": {
-                "x": 0.7424586211786633,
-                "y": 0.5304343146224638
+                "x": 0.7299767491016699,
+                "y": 0.6528944244955603
             },
-            "image": null,
+            "image": "A.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "AvIn"
         },
         {
             "id": 54,
             "position": {
-                "x": 0.7424586211786633,
-                "y": 0.4385842168523402
+                "x": 0.739716761783978,
+                "y": 0.5769317447678
             },
-            "image": "OcaStop.png",
+            "image": "Semaforo.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "SEMAFORO"
         },
         {
             "id": 55,
             "position": {
-                "x": 0.7904317173477037,
-                "y": 0.43054733329745437
+                "x": 0.7456689917564997,
+                "y": 0.507699935395664
             },
-            "image": null,
+            "image": "Libera.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -624,10 +668,11 @@
         {
             "id": 56,
             "position": {
-                "x": 0.8397013836834748,
-                "y": 0.421362323520442
+                "x": 0.7570323398858593,
+                "y": 0.43942967893147433
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -635,21 +680,23 @@
         {
             "id": 57,
             "position": {
-                "x": 0.8909159052693422,
-                "y": 0.4271029546310747
+                "x": 0.7662312407524836,
+                "y": 0.36731321083549934
             },
-            "image": "TiraAncora.png",
+            "image": "OcaStop.png",
+            "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "PLAYER_ALL"
         },
         {
             "id": 58,
             "position": {
-                "x": 0.8909159052693422,
-                "y": 0.5086199164020595
+                "x": 0.8003212851405622,
+                "y": 0.36827476374344564
             },
-            "image": null,
+            "image": "TiraAncora.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -657,10 +704,11 @@
         {
             "id": 59,
             "position": {
-                "x": 0.8909159052693422,
-                "y": 0.600470014172183
+                "x": 0.8089790741915028,
+                "y": 0.43846812602352797
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -668,10 +716,11 @@
         {
             "id": 60,
             "position": {
-                "x": 0.8909159052693422,
-                "y": 0.6773944710546616
+                "x": 0.8133079687169732,
+                "y": 0.5000075121320934
             },
-            "image": "Incidente.png",
+            "image": "TornaScuola.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -679,10 +728,11 @@
         {
             "id": 61,
             "position": {
-                "x": 0.8909159052693422,
-                "y": 0.7658001901584055
+                "x": 0.8257535404777002,
+                "y": 0.5759701918598537
             },
-            "image": "LoCa.png",
+            "image": "Duello.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -690,10 +740,11 @@
         {
             "id": 62,
             "position": {
-                "x": 0.8909159052693422,
-                "y": 0.855354035484276
+                "x": 0.8376580004227436,
+                "y": 0.6452020012319897
             },
-            "image": "TornaScuola.png",
+            "image": "LoCa.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -701,10 +752,11 @@
         {
             "id": 63,
             "position": {
-                "x": 0.8909159052693422,
-                "y": 0.9357228710331342
+                "x": 0.846856901289368,
+                "y": 0.718280022235911
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -712,10 +764,11 @@
         {
             "id": 64,
             "position": {
-                "x": 0.9557444136058831,
-                "y": 0.9460560070322731
+                "x": 0.8057324032974001,
+                "y": 0.7192415751438573
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -723,10 +776,11 @@
         {
             "id": 65,
             "position": {
-                "x": 0.8397013836834748,
-                "y": 0.6819869759431677
+                "x": 0.7629845698583809,
+                "y": 0.7230877867756427
             },
-            "image": "PausaCaffe.png",
+            "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -734,10 +788,11 @@
         {
             "id": 66,
             "position": {
-                "x": 0.7904317173477037,
-                "y": 0.686579480831674
+                "x": 0.8560558021559924,
+                "y": 0.77885785543653
             },
             "image": null,
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
@@ -745,43 +800,11 @@
         {
             "id": 67,
             "position": {
-                "x": 0.6166913150057738,
-                "y": 0.9460560070322731
+                "x": 0.9188247727753118,
+                "y": 0.8923210985741973
             },
             "image": null,
-            "video": null,
-            "audio": null,
-            "selector": null
-        },
-        {
-            "id": 68,
-            "position": {
-                "x": 0.5609387978363485,
-                "y": 0.9426116283658935
-            },
-            "image": null,
-            "video": null,
-            "audio": null,
-            "selector": null
-        },
-        {
-            "id": 69,
-            "position": {
-                "x": 0.35413585624278276,
-                "y": 0.9403153759216404
-            },
-            "image": null,
-            "video": null,
-            "audio": null,
-            "selector": null
-        },
-        {
-            "id": 70,
-            "position": {
-                "x": 0.3048661899070116,
-                "y": 0.9460560070322731
-            },
-            "image": "OcaStop.png",
+            "txt": null,
             "video": null,
             "audio": null,
             "selector": null
