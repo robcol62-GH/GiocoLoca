@@ -10,11 +10,13 @@ const Config = {
     // Numero Massimo di Giocatori
     MAX_PLAYERS:15,
 
-    // Numero minimo di pedine sulla stessa casella per attivare l'evento di affollamento.
-    CROWDING_LIMIT:3,
+    // Numero massimo di pedine sulla stessa casella per attivare l'evento di affollamento.
+    CROWDING_LIMIT:4,
 
     // Grandezza Segnalino OCA
-    OCA_SIZE:46,
+    OCA_SIZE:40,
+    // Ingranditore  Segnalino OCA
+    OCA_HOVER_FACTOR: 3.0,
 
     PLAYER_RADIUS:12,
     PLAYER_CIRCLE_RADIUS: 26,
@@ -22,6 +24,12 @@ const Config = {
 
     START_CELL_OFFSET_X: 28,
     START_CELL_OFFSET_Y: 0,
+
+    TIMER_DEFAULT_MINUTES: 1,
+    TIMER_DEFAULT_SECONDS: 0,
+    TIMER_WARNING_SECONDS: 10,
+
+    TIMER_COUNTDOWN_START: 10,
 
     init() {
 

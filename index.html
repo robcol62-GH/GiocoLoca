@@ -63,7 +63,72 @@
                 preserveAspectRatio="none">
 
             </svg>
+            <div id="timerPanel" class="hidden">
 
+                <div id="timerTitle">
+
+                    <span>⏱ TIMER</span>
+
+                    <button id="btnTimerClose">✕</button>
+
+                </div>
+
+                <div id="timerMain">
+
+                    <div id="timerLeft">
+
+                        <div id="timerDisplay">
+                            01:00
+                        </div>
+
+                        <div id="timerControls">
+
+                            <label>
+                                Minuti:
+                                <input
+                                    id="timerMinutes"
+                                    type="number"
+                                    min="0"
+                                    max="99"
+                                    value="1">
+                            </label>
+
+                            <label>
+                                Secondi:
+                                <input
+                                    id="timerSeconds"
+                                    type="number"
+                                    min="0"
+                                    max="59"
+                                    value="0">
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <div id="timerButtons">
+
+                        <button id="btnTimerStart">
+                            ▶ AVVIA
+                        </button>
+
+                        <button id="btnTimerPause">
+                            ⏸ PAUSA
+                        </button>
+
+                        <button id="btnTimerResume">
+                            ▶ RIPRENDI
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button id="btnTimerReset">
+                    ↻ RESET
+                </button>
+
+            </div>
         </section>
 
         <button id="btnMenu" title="Menu">
@@ -105,7 +170,9 @@
             <button id="btnNewGame">
                 Nuova Partita
             </button>
-
+            <button id="btnTimer">
+                ⏱ Timer
+            </button>
             <hr>
 
             <button id="btnFullscreen">
@@ -132,7 +199,9 @@
         </span>
 
     </footer>
-
+    <audio id="timerSound" preload="auto">
+        <source src="audio/Audio_ES.mp3" type="audio/mpeg">
+    </audio>
     <script src="js/Popup.js"></script>
     <script src="js/game.js"></script>
     <script src="js/Board.js"></script>

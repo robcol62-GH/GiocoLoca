@@ -117,28 +117,9 @@ const Game = {
             "violet",
             "gray"
         ];
-        const pawnImages = [
-            "images/oche/oca_blu.png",
-            "images/oche/oca_rossa.png",
-            "images/oche/oca_verde.png",
-            "images/oche/oca_gialla.png",            
-
-            /*
-            "images/oche/oca_arancione.png",
-            "images/oche/oca_viola.png",
-            "images/oche/oca_gold.png",
-            "images/oche/oca_cyan.png",
-            "images/oche/oca_magenta.png",
-            "images/oche/oca_brown.png",
-            "images/oche/oca_lime.png",
-            "images/oche/oca_pink.png",
-            "images/oche/oca_teal.png",
-            "images/oche/oca_navy.png",
-            "images/oche/oca_olive.png",
-            "images/oche/oca_coral.png"
-            */
-        ];
-
+        
+        pawnImage: "images/oche/pedina_base.png"
+        
         for (let i = 1; i <= Config.MAX_PLAYERS; i++) {
 
             this.availablePlayers.push({
@@ -149,10 +130,7 @@ const Game = {
                 stopTurns: 0,          // <-- NUOVO
                 color: colors[(i - 1) % colors.length],
 
-                pawnImage:
-                    i <= pawnImages.length
-                        ? pawnImages[i - 1]
-                        : "images/oche/oca_base.png"
+                pawnImage: "images/oche/pedina_base.png"
 
             });
         }

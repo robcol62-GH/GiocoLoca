@@ -17,7 +17,21 @@ const UI = {
         this.btnMenu = document.getElementById("btnMenu");
         this.menuPanel = document.getElementById("menuPanel");
         this.btnFullscreen = document.getElementById("btnFullscreen");
-
+        this.btnTimer = document.getElementById("btnTimer");
+        this.timerPanel = document.getElementById("timerPanel");
+        this.timerDisplay = document.getElementById("timerDisplay");
+        this.timerMinutes = document.getElementById("timerMinutes");
+        this.timerSeconds = document.getElementById("timerSeconds");
+        this.btnTimerStart = document.getElementById("btnTimerStart");
+        this.btnTimerReset = document.getElementById("btnTimerReset");
+        this.btnTimerPause = document.getElementById("btnTimerPause");
+        this.btnTimerResume = document.getElementById("btnTimerResume");
+        this.btnTimerClose = document.getElementById("btnTimerClose");
+        this.timerSound = document.getElementById("timerSound");
+        this.timerInterval = null;
+        this.timerRemaining = 0;
+        this.timerInitial = 0;
+        
         this.events();
         Game.log("UI inizializzata");
 
@@ -41,6 +55,49 @@ const UI = {
 
         );
 
+        this.btnTimer.addEventListener(
+
+            "click",
+
+            () => this.showTimer()
+
+        );        
+        this.btnTimerStart.addEventListener(
+
+            "click",
+
+            () => this.startTimer()
+
+        );
+
+        this.btnTimerReset.addEventListener(
+
+            "click",
+
+            () => this.resetTimer()
+
+        );
+        this.btnTimerPause.addEventListener(
+
+            "click",
+
+            () => this.pauseTimer()
+
+        );
+        this.btnTimerResume.addEventListener(
+
+            "click",
+
+            () => this.resumeTimer()
+
+        );        
+        this.btnTimerClose.addEventListener(
+
+            "click",
+
+            () => this.closeTimer()
+
+        );        
         document.addEventListener(
 
             "keydown",
@@ -84,7 +141,179 @@ const UI = {
         this.menuPanel.classList.toggle("hidden");
 
     },
+    
+    showTimer() {
+        this.timerPanel.classList.remove("hidden");
+        this.menuPanel.classList.add("hidden");
+        this.updateTimerButtons();
+    },
+    closeTimer() {
 
+        this.timerPanel.classList.add("hidden");
+
+    },    
+    startTimer() {
+
+        if (this.timerInterval)
+            return;
+
+        const minutes =
+            parseInt(this.timerMinutes.value) || 0;
+
+        const seconds =
+            parseInt(this.timerSeconds.value) || 0;
+
+        this.timerRemaining =
+            minutes * 60 + seconds;
+
+        if (this.timerRemaining <= 0)
+            return;
+        this.timerInitial = this.timerRemaining;
+        this.updateTimerDisplay();
+
+        this.timerInterval = setInterval(() => {
+
+            this.timerRemaining--;
+
+            if (this.timerRemaining <= 0) {
+
+                this.timerRemaining = 0;
+
+                clearInterval(this.timerInterval);
+
+                this.timerInterval = null;
+
+                this.updateTimerDisplay();
+
+                this.timerFinished();
+
+                return;
+
+            }
+
+            this.updateTimerDisplay();
+
+        }, 1000);
+        this.updateTimerButtons();
+    },
+
+    pauseTimer() {
+
+        if (!this.timerInterval)
+            return;
+
+        clearInterval(this.timerInterval);
+
+        this.timerInterval = null;
+
+        this.updateTimerButtons();
+
+    },
+
+    resumeTimer() {
+
+        if (this.timerInterval)
+            return;
+
+        if (this.timerRemaining <= 0)
+            return;
+
+        this.timerInterval = setInterval(() => {
+
+            this.timerRemaining--;
+
+            if (this.timerRemaining <= 0) {
+
+                this.timerRemaining = 0;
+
+                clearInterval(this.timerInterval);
+
+                this.timerInterval = null;
+
+                this.updateTimerDisplay();
+
+                this.timerFinished();
+
+                return;
+
+            }
+
+            this.updateTimerDisplay();
+
+        }, 1000);
+        this.updateTimerButtons();
+
+    },    
+    updateTimerButtons() {
+
+        const running = this.timerInterval !== null;
+        const paused =
+            !running &&
+            this.timerRemaining > 0 &&
+            this.timerRemaining < this.timerInitial;
+
+        this.btnTimerStart.disabled =
+            running || paused;
+
+        this.btnTimerPause.disabled =
+            !running;
+
+        this.btnTimerResume.disabled =
+            running || !paused;
+
+    },    
+    
+    timerFinished() {
+
+        this.timerSound.currentTime = 0;
+        this.timerSound.play();
+
+        this.timerDisplay.classList.remove("timer-warning");
+
+        this.timerPanel.classList.add("timer-finished");
+
+    },
+
+    updateTimerDisplay() {
+
+        const minutes =
+            Math.floor(this.timerRemaining / 60);
+
+        const seconds =
+            this.timerRemaining % 60;
+
+        this.timerDisplay.textContent =
+            String(minutes).padStart(2, "0") +
+            ":" +
+            String(seconds).padStart(2, "0");
+            console.log("TIMER:", this.timerRemaining, "SOGLIA:", Config.TIMER_COUNTDOWN_START);
+
+        // Ultimi Config.TIMER_COUNTDOWN_START secondi
+        if (this.timerRemaining <= Config.TIMER_COUNTDOWN_START && this.timerRemaining > 0) {
+
+            this.timerDisplay.classList.add("timer-warning");
+
+        }
+        else {
+
+            this.timerDisplay.classList.remove("timer-warning");
+
+        }
+
+    },
+    resetTimer() {
+        this.timerPanel.classList.remove("timer-finished");
+        this.timerDisplay.classList.remove("timer-warning");
+
+        clearInterval(this.timerInterval);
+        this.timerInterval = null;
+        this.timerRemaining =
+            (parseInt(this.timerMinutes.value) || 0) * 60 +
+            (parseInt(this.timerSeconds.value) || 0);
+        this.updateTimerDisplay();
+        this.updateTimerButtons();
+    },    
+    
     fullscreen() {
 
         if (!document.fullscreenElement) {

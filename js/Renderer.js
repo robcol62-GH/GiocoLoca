@@ -128,13 +128,50 @@ const Renderer = {
     },
     drawOca(parent, player, dimensione = Config.OCA_SIZE) {
 
+        // -------------------------------------------------
+        // SFONDO COLORATO
+        // -------------------------------------------------
+
+        const sfondo = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "circle"
+        );
+
+        sfondo.setAttribute(
+            "r",
+            dimensione * 0.46
+        );
+
+        sfondo.setAttribute(
+            "fill",
+            player.color
+        );
+
+        // Non deve intercettare il mouse
+        sfondo.setAttribute(
+            "pointer-events",
+            "none"
+        );
+
+        player.backgroundElement = sfondo;
+
+        parent.appendChild(sfondo);
+
+
+        // -------------------------------------------------
+        // OCA NEUTRA
+        // -------------------------------------------------
+
         const oca = document.createElementNS(
             "http://www.w3.org/2000/svg",
             "image"
         );
 
-        oca.setAttribute("href", player.pawnImage);
-        
+        oca.setAttribute(
+            "href",
+            player.pawnImage
+        );
+
         oca.setAttribute(
             "width",
             dimensione
@@ -151,11 +188,231 @@ const Renderer = {
 
         player.element = oca;
 
+
+        // -------------------------------------------------
+        // SELEZIONE
+        // -------------------------------------------------
+
         if (Game.selectedPlayer === player) {
+
             oca.classList.add("player-selected");
+
         }
 
+
         parent.appendChild(oca);
+
+
+            
+        // -------------------------------------------------
+        // NUMERO DEL GIOCATORE
+        // -------------------------------------------------
+
+        const numero = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "text"
+        );
+
+        numero.textContent = player.id;
+
+        numero.setAttribute(
+            "text-anchor",
+            "middle"
+        );
+
+        numero.setAttribute(
+            "dominant-baseline",
+            "central"
+        );
+
+        numero.setAttribute(
+            "font-family",
+            "Arial, sans-serif"
+        );
+
+        numero.setAttribute(
+            "font-weight",
+            "bold"
+        );
+
+        numero.setAttribute(
+            "font-size",
+            dimensione * 0.22
+        );
+
+        numero.setAttribute(
+            "fill",
+            "white"
+        );
+
+        numero.setAttribute(
+            "pointer-events",
+            "none"
+        );
+
+        numero.setAttribute(
+            "style",
+            "paint-order: stroke; stroke: black; stroke-width: 2px;"
+        );
+
+        player.numberElement = numero;
+
+        parent.appendChild(numero);    
+
+
+        // -------------------------------------------------
+        // INGRANDIMENTO AL PASSAGGIO DEL MOUSE
+        // -------------------------------------------------
+
+        const fattoreHover = Config.OCA_HOVER_FACTOR;
+
+        oca.addEventListener("mouseenter", () => {
+
+            const x = parseFloat(oca.getAttribute("x"));
+            const y = parseFloat(oca.getAttribute("y"));
+
+            const cx = x + dimensione / 2;
+            const cy = y + dimensione / 2;
+
+            const nuovaDimensione =
+                dimensione * fattoreHover;
+            numero.setAttribute(
+                "font-size",
+                nuovaDimensione * 0.11
+            );
+
+            numero.setAttribute(
+                "x",
+                cx - nuovaDimensione * 0.02
+            );
+
+            numero.setAttribute(
+                "y",
+                cy + nuovaDimensione * 0.28
+            );
+
+            // OCA
+
+            oca.setAttribute(
+                "width",
+                nuovaDimensione
+            );
+
+            oca.setAttribute(
+                "height",
+                nuovaDimensione
+            );
+
+            oca.setAttribute(
+                "x",
+                cx - nuovaDimensione / 2
+            );
+
+            oca.setAttribute(
+                "y",
+                cy - nuovaDimensione / 2
+            );
+
+
+            // SFONDO COLORATO
+
+            sfondo.setAttribute(
+                "r",
+                nuovaDimensione / 2
+            );
+
+            sfondo.setAttribute(
+                "cx",
+                cx
+            );
+
+            sfondo.setAttribute(
+                "cy",
+                cy
+            );
+
+            oca.classList.add("player-hover");
+
+        });
+
+
+        oca.addEventListener("mouseleave", () => {
+
+            const nuovaDimensione =
+                dimensione * fattoreHover;
+
+            const x =
+                parseFloat(oca.getAttribute("x"));
+
+            const y =
+                parseFloat(oca.getAttribute("y"));
+
+            const cx =
+                x + nuovaDimensione / 2;
+
+            const cy =
+                y + nuovaDimensione / 2;
+
+
+            // OCA TORNA NORMALE
+
+            oca.setAttribute(
+                "width",
+                dimensione
+            );
+
+            oca.setAttribute(
+                "height",
+                dimensione
+            );
+
+            oca.setAttribute(
+                "x",
+                cx - dimensione / 2
+            );
+
+            oca.setAttribute(
+                "y",
+                cy - dimensione / 2
+            );
+
+
+            // SFONDO TORNA NORMALE
+
+            sfondo.setAttribute(
+                "r",
+                dimensione * 0.45
+            );
+
+            sfondo.setAttribute(
+                "cx",
+                cx
+            );
+
+            sfondo.setAttribute(
+                "cy",
+                cy
+            );
+            // NUMERO TORNA NORMALE
+
+            numero.setAttribute(
+                "font-size",
+                dimensione * 0.22
+            );
+
+            numero.setAttribute(
+                "x",
+                cx
+            );
+
+            numero.setAttribute(
+                "y",
+                cy + dimensione * 0.18
+            );
+            oca.classList.remove("player-hover");
+
+        });
+
 
         return oca;
 
@@ -539,8 +796,8 @@ const Renderer = {
                     baseX + offsetX,
                     baseY + offsetY,
                     ringRadius,
-                    player.stopTurns > 0 ? "red" : "black",
-                    player.stopTurns > 0 ? 6 : 4
+                    "black",
+                    4
                 );
             }
 
@@ -560,6 +817,47 @@ const Renderer = {
                 baseY + offsetY,
                 ocaSize
             );
+            // ==============================
+            // PEDINA FERMA: VELO SCURO
+            // ==============================
+
+            if (player.stopTurns > 0) {
+
+                const overlay = this.create("circle");
+
+                overlay.setAttribute(
+                    "cx",
+                    baseX + offsetX
+                );
+
+                overlay.setAttribute(
+                    "cy",
+                    baseY + offsetY
+                );
+
+                overlay.setAttribute(
+                    "r",
+                    ocaSize / 2
+                );
+
+                overlay.setAttribute(
+                    "fill",
+                    "black"
+                );
+
+                overlay.setAttribute(
+                    "opacity",
+                    "0.55"
+                );
+
+                overlay.setAttribute(
+                    "pointer-events",
+                    "none"
+                );
+
+                group.appendChild(overlay);
+
+            }            
 
             pawn.classList.add("player");
             pawn.dataset.playerId = player.id;
@@ -604,21 +902,52 @@ const Renderer = {
             }
         },
 
-    positionPlayer(player, x, y, dimensione = Config.OCA_SIZE) {
+        positionPlayer(player, x, y, dimensione = Config.OCA_SIZE) {
 
-        const oca = player.element;
+            const oca = player.element;
 
-        if (!oca) return;
+            if (!oca) return;
 
-        oca.setAttribute(
-            "x",
-            x - dimensione / 2
-        );
+            oca.setAttribute(
+                "x",
+                x - dimensione / 2
+            );
 
-        oca.setAttribute(
-            "y",
-            y - dimensione / 2
-        );
+            oca.setAttribute(
+                "y",
+                y - dimensione / 2
+            );
 
-    }    
+            if (player.backgroundElement) {
+
+                player.backgroundElement.setAttribute(
+                    "cx",
+                    x
+                );
+
+                player.backgroundElement.setAttribute(
+                    "cy",
+                    y
+                );
+
+                player.backgroundElement.setAttribute(
+                    "r",
+                    dimensione / 2
+                );
+
+            }
+            if (player.numberElement) {
+
+                player.numberElement.setAttribute(
+                    "x",
+                    x
+                );
+
+                player.numberElement.setAttribute(
+                    "y",
+                    y + dimensione * 0.18
+                );
+
+            }        
+        }
 };
