@@ -18,6 +18,14 @@ const UI = {
         this.menuPanel = document.getElementById("menuPanel");
         this.btnFullscreen = document.getElementById("btnFullscreen");
         this.btnTimer = document.getElementById("btnTimer");
+        this.btnDice = document.getElementById("btnDice");
+        this.dicePanel = document.getElementById("dicePanel");
+        this.diceResult = document.getElementById("diceResult");
+        this.btnDiceClose = document.getElementById("btnDiceClose");        
+        this.btnDiceClose2 = document.getElementById("btnDiceClose2");
+        this.btnDiceRoll = document.getElementById("btnDiceRoll");
+        this.diceCube = document.getElementById("diceCube");
+
         this.timerPanel = document.getElementById("timerPanel");
         this.timerDisplay = document.getElementById("timerDisplay");
         this.timerMinutes = document.getElementById("timerMinutes");
@@ -62,6 +70,29 @@ const UI = {
             () => this.showTimer()
 
         );        
+        this.btnDice.addEventListener("click", () => {
+            this.showDice();
+        });        
+        this.btnDiceClose2.addEventListener("click", () => {
+             this.dicePanel.classList.add("hidden");
+        });
+        this.btnDiceRoll.addEventListener("click", () => {
+            const risultato = Math.floor(Math.random() * 6) + 1;
+            const orientamenti = {
+                1: [90, 0],
+                2: [0, 180],
+                3: [0, 90],
+                4: [-90, 0],
+                5: [0, 0],
+                6: [0, -90]
+            };
+            const [x, y] = orientamenti[risultato];
+            this.diceCube.style.setProperty("--finalX", `${x}deg`);
+            this.diceCube.style.setProperty("--finalY", `${y}deg`);
+            this.diceCube.classList.remove("rolling");
+            void this.diceCube.offsetWidth;
+            this.diceCube.classList.add("rolling");
+        });
         this.btnTimerStart.addEventListener(
 
             "click",
@@ -141,7 +172,10 @@ const UI = {
         this.menuPanel.classList.toggle("hidden");
 
     },
-    
+    showDice() {
+        this.dicePanel.classList.remove("hidden");
+    },
+
     showTimer() {
         this.timerPanel.classList.remove("hidden");
         this.menuPanel.classList.add("hidden");

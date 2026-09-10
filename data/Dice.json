@@ -325,6 +325,45 @@
         "textSize": 80
     },
 
+    {
+        "id": "DADODUE",
+        "name": "Secondo Dado",
+        "type": "numbers",
+
+        "faces": [
+
+            {
+                "id": "1",
+                "text": "UNO",
+                "value": 1,
+                "image": "Uno.png",
+                "style": "SOLID",
+                "color1": "#FFFFFF",
+                "color2": "#8b0000"
+            },
+
+            {
+                "id": "2",
+                "text": "DUE",
+                "value": 2,
+                "image": "Due.png",
+                "style": "SOLID",
+                "color1": "#FFFFFF",
+                "color2": "#8b0000"
+            },
+
+            {
+                "id": "-2",
+                "text": "Meno DUE",
+                "value": 3,
+                "image": "MenoDue.png",
+                "style": "SOLID",
+                "color1": "#FFFFFF",
+                "color2": "#8b0000"
+            }
+
+        ]
+    },
     
     {
         "__comment": "DA QUI da SISTEMARE o NON USATI"
