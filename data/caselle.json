@@ -47,7 +47,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": "DADODUE"
+            "selector": null,
+            "ignoreCrowding": true
         },
         {
             "id": 5,
@@ -71,7 +72,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 7,
@@ -96,7 +98,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true
         },
         {
             "id": 9,
@@ -132,7 +135,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 12,
@@ -144,7 +148,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 13,
@@ -156,7 +161,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": "TIFOSI"
+            "selector": "TIFOSI",
+            "ignoreCrowding": true
         },
         {
             "id": 14,
@@ -217,7 +223,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 19,
@@ -241,7 +248,7 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": "PLAYER_ALL"
         },
         {
             "id": 21,
@@ -265,7 +272,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": "AvIn"
+            "selector": "AvIn",
+            "ignoreCrowding": true            
         },
         {
             "id": 23,
@@ -289,7 +297,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": "PLAYER_ALL"
+            "selector": "PLAYER_ALL",
+            "ignoreCrowding": true            
         },
         {
             "id": 25,
@@ -313,7 +322,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 27,
@@ -386,7 +396,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 33,
@@ -398,7 +409,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": "MVSF"
+            "selector": "MVSF",
+            "ignoreCrowding": true
         },
         {
             "id": 34,
@@ -422,7 +434,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 36,
@@ -434,7 +447,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 37,
@@ -470,7 +484,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 40,
@@ -554,7 +569,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": "DIREZIONI"
+            "selector": "DIREZIONI",
+            "ignoreCrowding": true            
         },
         {
             "id": 47,
@@ -578,7 +594,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true
         },
         {
             "id": 49,
@@ -602,7 +619,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": "AvIn"
+            "selector": "AvIn",
+            "ignoreCrowding": true            
         },
         {
             "id": 51,
@@ -638,7 +656,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": "AvIn"
+            "selector": "AvIn",
+            "ignoreCrowding": true            
         },
         {
             "id": 54,
@@ -650,7 +669,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": "SEMAFORO"
+            "selector": "SEMAFORO",
+            "ignoreCrowding": true            
         },
         {
             "id": 55,
@@ -662,7 +682,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 56,
@@ -686,7 +707,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": "PLAYER_ALL"
+            "selector": "PLAYER_ALL",
+            "ignoreCrowding": true            
         },
         {
             "id": 58,
@@ -698,7 +720,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 59,
@@ -722,7 +745,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 61,
@@ -734,7 +758,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true
         },
         {
             "id": 62,
@@ -746,7 +771,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 63,
@@ -770,7 +796,8 @@
             "txt": null,
             "video": null,
             "audio": null,
-            "selector": null
+            "selector": null,
+            "ignoreCrowding": true            
         },
         {
             "id": 65,
