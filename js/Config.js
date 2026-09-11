@@ -218,10 +218,16 @@ const Config = {
                     // La pedina è ferma: non può essere spostata.
                     if (Game.selectedPlayer.stopTurns > 0) {
 
-                        UI.message("⛔ OCA ferma. Premi SPACE.");                        
-                        return;
-                    }                    
+                        UI.message("⛔ OCA ferma. Premi SPACE.");
 
+                        Game.selectedPlayer = null;
+
+                        Renderer.refresh();
+
+                        Popup.showCell(nearestCell);
+
+                        return;
+                    }
                     Game.selectedPlayer.cellId = nearestCell.id;
 
                     const players = Game.getPlayersOnCell(nearestCell.id);

@@ -154,11 +154,19 @@ const UI = {
 
                         event.preventDefault();
 
-                        Game.selectedPlayer.stopTurns =
-                            Game.selectedPlayer.stopTurns ? 0 : 1;
+                        if (Game.selectedPlayer.stopTurns) {
+
+                            // Sblocco la pedina
+                            Game.selectedPlayer.stopTurns = 0;
+                            Game.selectedPlayer = null;
+
+                        } else {
+
+                            // Blocco la pedina
+                            Game.selectedPlayer.stopTurns = 1;
+                        }
 
                         Renderer.refresh();
-
                         break;
                 }
 
